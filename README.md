@@ -80,7 +80,7 @@ The Project is broken down into the following file structure:
 etc...
    
 
-![Controller Image](assets/Controller.pdf)
+![Controller Image](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/Controller.pdf)
 ![Interface](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/interface%20full-1.jpg)
-![Interface2](assets/Interface full-2.jpg)
-!(Interface3)(assets/Interface full-3.jpg)
+![Interface2](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/interface%20full-2.jpg)
+!(Interface3)(https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/interface%20full-3.jpg)
