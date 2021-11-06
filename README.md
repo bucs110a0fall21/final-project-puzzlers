@@ -78,3 +78,6 @@ The Project is broken down into the following file structure:
 |  1  | Run Counter Program  | GUI window appears with count = 0  |          |
 |  2  | click count button  | display changes to count = 1 |                 |
 etc...
+   
+Interface Sketch
+   (assets/interface-1.jpg)
