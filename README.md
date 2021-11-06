@@ -81,8 +81,7 @@ etc...
    
 Interface Sketch
 ![Interface](assets/interface full-1.jpg)
-   
-![Interface2](assets/interface full-2.jpg)
+   ![Interface2](assests/interface full-2.jpg)
    
 ![Interface3](assets/interface full-3.jpg)
    
