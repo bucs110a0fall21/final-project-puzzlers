@@ -81,6 +81,6 @@ etc...
    
 
 ![Controller Image](assets/Controller.pdf)
-![Interface](assets/Interface full-1.jpg)
+![Interface](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/interface%20full-1.jpg)
 ![Interface2](assets/Interface full-2.jpg)
 !(Interface3)(assets/Interface full-3.jpg)
