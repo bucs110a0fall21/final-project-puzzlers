@@ -79,12 +79,6 @@ The Project is broken down into the following file structure:
 |  2  | click count button  | display changes to count = 1 |                 |
 etc...
    
-Interface Sketch
-![Interface](assets/interface full-1.jpg)
-   
-   
-![Second Interface](assests/interface full-2.jpg)
-   
-![Interface3](assets/interface full-3.jpg)
-   
+
 ![Controller Image](assets/Controller.pdf)
+![Interface] (assets/Interface full-1.jpg)
