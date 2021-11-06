@@ -83,4 +83,4 @@ etc...
 ![Controller Image](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/Controller.pdf)
 ![Interface](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/interface%20full-1.jpg)
 ![Interface2](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/interface%20full-2.jpg)
-!(Interface3)(https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/interface%20full-3.jpg)
+![Interface3](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/interface%20full-3.jpg)
