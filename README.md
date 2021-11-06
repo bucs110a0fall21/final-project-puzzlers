@@ -81,4 +81,6 @@ etc...
    
 
 ![Controller Image](assets/Controller.pdf)
-![Interface] (assets/Interface full-1.jpg)
+![Interface](assets/Interface full-1.jpg)
+![Interface2](assets/Interface full-2.jpg)
+!(Interface3)(assets/Interface full-3.jpg)
