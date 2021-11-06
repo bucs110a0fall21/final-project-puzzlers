@@ -80,4 +80,4 @@ The Project is broken down into the following file structure:
 etc...
    
 Interface Sketch
-   (assets/interface-1.jpg)
+   ![Interface](assets/interface-1.jpg)
