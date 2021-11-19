@@ -1,4 +1,6 @@
 #Ashley
+import pygame
+
 class Puzzle(pygame.sprite.Sprite):
   def __init__(self, name, x, y, image):
     self.image = pygame.image.load(image).convert_alpha()
