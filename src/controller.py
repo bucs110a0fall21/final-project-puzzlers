@@ -1,11 +1,17 @@
 import sys
 import pygame
+import os
 from src import puzzle
 #Esther wrote
 class Controller:
   #creates the screen with a set width and height (square)
   #initializes Sprite functionality
-  def __init__(self, width = 600, height = 600):
+  def __init__(self, width = 1280, height = 720):
+    """
+    Initilizes width, height, screen, background, background color and font (Incomplete)
+    args: self, width, height
+    returns: none
+    """
     pygame.init()
     self.width = width
     self.height = height
@@ -15,7 +21,16 @@ class Controller:
     pygame.font.init()
     pygame.key.set_repeat(1, 50)
 
+    self.pieces = pygame.sprite.Group() #set each piece into a group
+    num_pieces = 8 #Not sure if this will work well because we have to set the location individually for each piece 
+    self.state == "Incomplete"
+
   def mainloop(self):
+    """
+    sets game states 
+    args: self
+    returns: none
+    """
     while True:
       if(self.state == "Incomplete"):
         self.gameLoop()
