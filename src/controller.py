@@ -53,19 +53,20 @@ class Controller:
         self.gameOver()
 
   def gameLoop(self):
-    while (self.state == "Incomplete"):
+    while self.state == "Incomplete":
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
           sys.exit()
         #add in code where you click a piece of the image to choose to move
         if event.type == pygame.KEYDOWN:
-          self.puzzle.move_up()
-        elif(event.key == pygame.K_DOWN):
-          self.puzzle.move_down()
-        elif(event.key == pygame.K_LEFT):
-          self.puzzle.move_left()
-        elif(event.key == pygame.K_RIGHT):
-          self.puzzle.move_right()
+          if (event.key == pygame.K_UP):
+            self.puzzle.move_up()
+          elif(event.key == pygame.K_DOWN):
+            self.puzzle.move_down()
+          elif(event.key == pygame.K_LEFT):
+            self.puzzle.move_left()
+          elif(event.key == pygame.K_RIGHT):
+            self.puzzle.move_right()
 
     #checks to see if you can move an image to a space, if space is occupied, nothing happens
     # collide = pygame.sprite.spritecollide(self.puzzle, self.puzzle2, True)
