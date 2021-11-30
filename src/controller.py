@@ -2,6 +2,7 @@ import sys
 import pygame
 import os
 from src import puzzle
+
 #Esther wrote
 class Controller:
   #creates the screen with a set width and height (square)
@@ -17,13 +18,28 @@ class Controller:
     self.height = height
     self.screen = pygame.display.set_mode((self.width, self.height))
     self.background = pygame.Surface(self.screen.get_size()).convert()
-    self.background.fill((250, 250, 250))#sets background to white
+    self.background.fill((250, 250, 250)) #sets background to white
     pygame.font.init()
     pygame.key.set_repeat(1, 50)
 
     self.pieces = pygame.sprite.Group() #set each piece into a group
-    num_pieces = 8 #Not sure if this will work well because we have to set the location individually for each piece 
+    num_pieces = 8 #Will just use this to control movement for all pieces
     self.state == "Incomplete"
+
+  def test_images(self):
+    # I referred to each of these images as the location they should be in when the puzzle is solved.
+    # This function should spawn them in (random?) incorrect locations
+    # I also don't know if this should go in controller
+    top_left = pygame.image.load('assets', 'image_part_001.jpg')
+    top_mid = pygame.image.load('assets', 'image_part_002.jpg')
+    mid_left = pygame.image.load('assets', 'image_part_004.jpg')
+    mid_mid = pygame.image.load('assets', 'image_part_005.jpg')
+    mid_right = pygame.image.load('assets', 'image_part_006.jpg')
+    bottom_left = pygame.image.load('assets', 'image_part_007.jpg')
+    bottom_mid = pygame.image.load('assets', 'image_part_008.jpg')
+    bottom_right = pygame.image.load('assets', 'image_part_009.jpg')
+
+    self.screen.blit(top_left, (0, 0)) #repeat for the rest
 
   def mainloop(self):
     """
@@ -51,7 +67,7 @@ class Controller:
           self.puzzle.move_left()
         elif(event.key == pygame.K_RIGHT):
           self.puzzle.move_right()
-        
+
     #checks to see if you can move an image to a space, if space is occupied, nothing happens
     collide = pygame.sprite.spritecollide(self.puzzle, self.puzzle2, True)
     if (collide):
