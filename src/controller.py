@@ -24,12 +24,11 @@ class Controller:
 
     self.pieces = pygame.sprite.Group() #set each piece into a group
     num_pieces = 8 #Will just use this to control movement for all pieces
-    self.state == "Incomplete"
+    self.state = "Incomplete"
 
   def test_images(self):
     # I referred to each of these images as the location they should be in when the puzzle is solved.
     # This function should spawn them in (random?) incorrect locations
-    # I also don't know if this should go in controller
     top_left = pygame.image.load('assets', 'image_part_001.jpg')
     top_mid = pygame.image.load('assets', 'image_part_002.jpg')
     mid_left = pygame.image.load('assets', 'image_part_004.jpg')
@@ -69,13 +68,13 @@ class Controller:
           self.puzzle.move_right()
 
     #checks to see if you can move an image to a space, if space is occupied, nothing happens
-    collide = pygame.sprite.spritecollide(self.puzzle, self.puzzle2, True)
-    if (collide):
-      for i in collide:
-        if(self.puzzle.fight(i)):
-          pass()#if collision, image doesn't move
-        else:
-          self.(#move image in direction the user choses)
+    # collide = pygame.sprite.spritecollide(self.puzzle, self.puzzle2, True)
+    # if (collide):
+    #   for i in collide:
+    #     if(self.puzzle.fight(i)):
+    #       pass()#if collision, image doesn't move
+    #     else:
+    #       self.(#move image in direction the user choses)
 
   def gameOver(self):
     self.puzzle.kill()
