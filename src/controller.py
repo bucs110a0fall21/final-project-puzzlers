@@ -1,13 +1,13 @@
 import sys
 import pygame
-import os
 from src import puzzle
+import os
 
 #Esther wrote
 class Controller:
   #creates the screen with a set width and height (square)
   #initializes Sprite functionality
-  def __init__(self, width = 1280, height = 720):
+  def __init__(self, width=1280, height=720):
     """
     Initilizes width, height, screen, background, background color and font (Incomplete)
     args: self, width, height
@@ -18,7 +18,8 @@ class Controller:
     self.height = height
     self.screen = pygame.display.set_mode((self.width, self.height))
     self.background = pygame.Surface(self.screen.get_size()).convert()
-    self.background.fill((250, 250, 250)) #sets background to white
+    self.background.fill((255, 0, 0)) #sets background to white
+    pygame.display.update()
     pygame.font.init()
     pygame.key.set_repeat(1, 50)
 
@@ -26,7 +27,7 @@ class Controller:
     num_pieces = 8 #Will just use this to control movement for all pieces
     self.state = "Incomplete"
 
-  def test_images(self):
+  def handle_collide(self):
     # I referred to each of these images as the location they should be in when the puzzle is solved.
     # This function should spawn them in (random?) incorrect locations
     top_left = pygame.image.load('assets', 'image_part_001.jpg')
@@ -38,7 +39,12 @@ class Controller:
     bottom_mid = pygame.image.load('assets', 'image_part_008.jpg')
     bottom_right = pygame.image.load('assets', 'image_part_009.jpg')
 
-    self.screen.blit(top_left, (0, 0)) #repeat for the rest
+    #self.screen.blit(top_left, (0, 0)) #repeat for the rest
+
+    #checks to see if you can move an image to a space, if space is occupied, nothing happens
+    #collide = pygame.sprite.spritecollide(self.puzzle, self.puzzle2, True)
+    if top_left.colliderect(top_mid, mid_left, mid_mid, mid_right, bottom_left, bottom_mid, bottom_right):
+      #cancel movement/ don't allow movement
 
   def mainloop(self):
     """
@@ -49,7 +55,7 @@ class Controller:
     while True:
       if(self.state == "Incomplete"):
         self.gameLoop()
-      elif(self.state == "GAMEOVER"):
+      elif(self.state == "Complete"):
         self.gameOver()
 
   def gameLoop(self):
@@ -67,15 +73,6 @@ class Controller:
             self.puzzle.move_left()
           elif(event.key == pygame.K_RIGHT):
             self.puzzle.move_right()
-
-    #checks to see if you can move an image to a space, if space is occupied, nothing happens
-    # collide = pygame.sprite.spritecollide(self.puzzle, self.puzzle2, True)
-    # if (collide):
-    #   for i in collide:
-    #     if(self.puzzle.fight(i)):
-    #       pass()#if collision, image doesn't move
-    #     else:
-    #       self.(#move image in direction the user choses)
 
   def gameOver(self):
     self.puzzle.kill()
