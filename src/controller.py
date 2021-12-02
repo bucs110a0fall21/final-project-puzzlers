@@ -18,7 +18,7 @@ class Controller:
         self.state = "GAME"
         self.background = pygame.image.load('assets/forestbackground.png')
 
-        self.player = Player.Player(500, 200)
+        self.player = Player.Player(1100, 650)
         self.Friend = Friend.Friend(30, 40)
 
     def mainloop(self):
@@ -36,8 +36,6 @@ class Controller:
                 if event.type == pygame.KEYDOWN:
                     if(event.key == pygame.K_UP):
                         self.player.move_up()
-                    elif(event.key == pygame.K_DOWN):
-                        self.player.move_down()
                     elif(event.key == pygame.K_LEFT):
                         self.player.move_left()
                     elif(event.key == pygame.K_RIGHT):
@@ -54,6 +52,10 @@ class Controller:
                 self.state = "GAMEOVER"
 
     def gameOver(self):
+        myfont = pygame.font.SysFont('comicsans', 30)
+        message = myfont.render('Congrats!', False, (0, 0, 0))
+        self.screen.blit(message, (1280 / 2, 720 / 2))
+        pygame.display.flip()
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

@@ -73,11 +73,19 @@ The Project is broken down into the following file structure:
 
 * Your ATP
 
-| Step                  | Procedure     | Expected Results  | Actual Results |
+| Step                  | Procedure     | Expected Results  | Pass/Comments |
 | ----------------------|:-------------:| -----------------:| -------------- |
-|  1  | Run Counter Program  | GUI window appears with count = 0  |          |
-|  2  | click count button  | display changes to count = 1 |                 |
-etc...
+|  1  | Run main()  | Game starts and loads user into the menu  |   |
+|  2  | Press left arrow  | Player moves left |  |
+|  3  | Hold left arrow |  Player continually moves left |  |
+|  4  | Press right arrow  | Player moves right |  |
+|  5  |Hold right arrow  |  Player continually moves right |  |
+|  6  | Press up arrow | Player jumps then falls back to the ground  |   |
+|  7  |  Player rect touches 'Friend' rect | Game ends | |
+|  8  | User clicks Instructions button |  Instructions tab opens and is functional | |
+|  9  | User clicks "Play"  | Game opens and starts | |
+|  10  | Player touches coin |  Coins counter gets updated by one | |
+|  11  |  |   | |
    
 
 ![Controller Image](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/Controller.pdf)
