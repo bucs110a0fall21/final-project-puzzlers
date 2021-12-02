@@ -4,7 +4,7 @@ import pygame
 class Player:
     def __init__(self, x, y):
         self.speed = 3
-        self.image = pygame.image.load('assets/totoro.png').convert_alpha()
+        self.image = pygame.transform.scale(pygame.image.load('assets/totoro.png'), (90, 54))
         self.rect = self.image.get_rect()
 
         self.rect.x = x

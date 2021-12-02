@@ -45,8 +45,8 @@ class Controller:
 
             pygame.display.update()
             self.screen.blit(self.background, (0, 0))
-            self.player.draw(self.screen)
-            self.Friend.draw(self.screen)
+            self.screen.blit(self.player.image, (self.player.rect.x, self.player.rect.y))
+            self.screen.blit(self.Friend.image, (self.Friend.rect.x, self.Friend.rect.y))
             pygame.display.flip()
 
             #Set win condition
