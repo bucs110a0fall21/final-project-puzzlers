@@ -1,9 +1,8 @@
 from src import Player
 from src import Friend
-
+from src import Timer
 import pygame
 import sys
-import os
 
 
 class Controller:
@@ -18,6 +17,9 @@ class Controller:
 
         self.state = "GAME"
         self.background = pygame.image.load('assets/forestbackground.png')
+
+        self.player = Player.Player(50, 80)
+        self.Friend = Friend.Friend(30,40)
 
     def mainloop(self):
         while True:
@@ -43,6 +45,16 @@ class Controller:
 
             pygame.display.update()
             self.screen.blit(self.background, (0, 0))
+
+            #Set win condition
+            if pygame.sprite.collide_rect(self.player, self.Friend):
+                self.state = "GAMEOVER"
+
+    def gameOver(self):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    sys.exit()
 
 
 
