@@ -1,10 +1,11 @@
 import pygame
 
 
-class Friend:
+class Friend(pygame.sprite.Sprite):
     def __init__(self, x, y):
-        self.image = pygame.transform.scale(pygame.image.load('assets/friend.png'), (184, 134))
+        super().__init__()
+        self.image = pygame.image.load('assets/friend.png')
 
         self.rect = self.image.get_rect()
-        self.rect.x = x # Placeholder locations
-        self.rect.y = y
+        self.rect.x = 184 # Placeholder locations
+        self.rect.y = 134
