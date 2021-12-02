@@ -6,23 +6,27 @@ import sys
 import os
 
 
-# from pygame.locals import *
-
 class Controller:
     def __init__(self):
+        pygame.init()
         self.screen_width = 1000
         self.screen_height = 1000
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         self.clock = pygame.time.Clock()
         self.fps = 60
         pygame.font.init()
-        pygame.init()
 
         self.state = "GAME"
-        FOREST = pygame.image.load(os.path.join('assets', 'forestbackground.png'))
-
+        self.background = pygame.image.load('assets/forestbackground.png')
 
     def mainloop(self):
+        while True:
+            if(self.state == "GAME"):
+                self.gameLoop()
+            elif(self.state == "GAMEOVER"):
+                self.gameOver()
+
+    def gameLoop(self):
         while self.state == "GAME":
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -37,8 +41,9 @@ class Controller:
                     elif(event.key == pygame.K_RIGHT):
                         self.Player.move_right()
 
-        pygame.display.update()
-        self.screen.blit(FOREST, (0,0))
+            pygame.display.update()
+            self.screen.blit(self.background, (0, 0))
+
 
 
 
