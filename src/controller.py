@@ -8,8 +8,8 @@ import sys
 class Controller:
     def __init__(self):
         pygame.init()
-        self.screen_width = 1000
-        self.screen_height = 1000
+        self.screen_width = 1280
+        self.screen_height = 720
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         self.clock = pygame.time.Clock()
         self.fps = 60
@@ -18,8 +18,8 @@ class Controller:
         self.state = "GAME"
         self.background = pygame.image.load('assets/forestbackground.png')
 
-        self.player = Player.Player(50, 80)
-        self.Friend = Friend.Friend(30,40)
+        self.player = Player.Player(500, 200)
+        self.Friend = Friend.Friend(30, 40)
 
     def mainloop(self):
         while True:
@@ -35,16 +35,19 @@ class Controller:
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if(event.key == pygame.K_UP):
-                        self.Player.move_up()
+                        self.player.move_up()
                     elif(event.key == pygame.K_DOWN):
-                        self.Player.move_down()
+                        self.player.move_down()
                     elif(event.key == pygame.K_LEFT):
-                        self.Player.move_left()
+                        self.player.move_left()
                     elif(event.key == pygame.K_RIGHT):
-                        self.Player.move_right()
+                        self.player.move_right()
 
             pygame.display.update()
             self.screen.blit(self.background, (0, 0))
+            self.player.draw(self.screen)
+            self.Friend.draw(self.screen)
+            pygame.display.flip()
 
             #Set win condition
             if pygame.sprite.collide_rect(self.player, self.Friend):
