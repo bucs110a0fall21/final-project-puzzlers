@@ -2,15 +2,15 @@
 # CS110 Project Proposal
 # << Project Title >>
 ## CS 110 Final Project
-### << Semester, Year >>
+### Fall, 2021
 ### [Assignment Description](https://docs.google.com/document/d/1H4R6yLL7som1lglyXWZ04RvTp_RvRFCCBn6sqv-82ps/edit#)
 
-<< [https://github.com/<repo>](#) >>
+https://github.com/bucs110a0fall21/final-project-puzzlers
 
 << [link to demo presentation slides](#) >>
 
-### Team: << team name >>
-#### << Team Members >>
+### Team: Puzzlers
+#### Christopher Yu, Young Seo (Esther) Hur, Ashley Yu
 
 ***
 
@@ -76,16 +76,17 @@ The Project is broken down into the following file structure:
 | Step                  | Procedure     | Expected Results  | Pass/Comments |
 | ----------------------|:-------------:| -----------------:| -------------- |
 |  1  | Run main()  | Game starts and loads user into the menu  |   |
-|  2  | Press left arrow  | Player moves left |  |
-|  3  | Hold left arrow |  Player continually moves left |  |
-|  4  | Press right arrow  | Player moves right |  |
-|  5  |Hold right arrow  |  Player continually moves right |  |
-|  6  | Press up arrow | Player jumps then falls back to the ground  |   |
-|  7  |  Player rect touches 'Friend' rect | Game ends | |
-|  8  | User clicks Instructions button |  Instructions tab opens and is functional | |
-|  9  | User clicks "Play"  | Game opens and starts | |
-|  10  | Player touches coin |  Coins counter gets updated by one | |
-|  11  |  |   | |
+|  2  | User clicks Instructions button |  Instructions tab opens and is functional | |
+|  3  | User clicks "Play"  | 1) Game opens and starts 2) Timer starts | |
+|  4  | Press left arrow  | Player moves left |  |
+|  5  | Hold left arrow |  Player continually moves left |  |
+|  6  | Press right arrow  | Player moves right |  |
+|  7  |Hold right arrow  |  Player continually moves right |  |
+|  8  | Press up arrow | Player jumps then falls back to the ground  |   |
+|  9  | Player touches coin |  Coins counter gets updated by one | |
+|  10  |  Player rect touches 'Friend' rect | 1) Game ends 2) A scoreboard is displayed showing past completion times | |
+|  11  | Tap "r" | The game resets (only works when the game is over)  | |
+
    
 
 ![Controller Image](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/Controller.pdf)
