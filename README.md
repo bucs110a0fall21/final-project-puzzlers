@@ -76,16 +76,15 @@ The Project is broken down into the following file structure:
 | Step                  | Procedure     | Expected Results  | Pass/Comments |
 | ----------------------|:-------------:| -----------------:| -------------- |
 |  1  | Run main()  | Game starts and loads user into the menu  |   |
-|  2  | User clicks Instructions button |  Instructions tab opens and is functional | |
+|  2  | User clicks Instructions button |  Instructions tab opens and says how to play game | |
 |  3  | User clicks "Play"  | 1) Game opens and starts 2) Timer starts | |
 |  4  | Press left arrow  | Player moves left |  |
 |  5  | Hold left arrow |  Player continually moves left |  |
 |  6  | Press right arrow  | Player moves right |  |
-|  7  |Hold right arrow  |  Player continually moves right |  |
-|  8  | Press up arrow | Player jumps then falls back to the ground  |   |
-|  9  | Player touches coin |  Coins counter gets updated by one | |
-|  10  |  Player rect touches 'Friend' rect | 1) Game ends 2) A scoreboard is displayed showing past completion times | |
-|  11  | Tap "r" | The game resets (only works when the game is over)  | |
+|  7  | Hold right arrow  |  Player continually moves right |  |
+|  8  | Press space key | Player jumps then falls back to the ground  |   |
+|  9  |  Player rect touches 'Friend' rect | 1) Game ends 2) A scoreboard is displayed showing past completion times & play again directions | |
+|  10  | Tap "r" | The game resets (only works when the game is over)  | |
 
    
 

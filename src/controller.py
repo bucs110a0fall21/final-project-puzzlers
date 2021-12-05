@@ -1,6 +1,7 @@
 from src import Player
 from src import Friend
 from src import Timer
+# from src import Powerup
 import pygame
 import sys
 
@@ -18,8 +19,11 @@ class Controller:
         self.state = "GAME"
         self.background = pygame.image.load('assets/forestbackground.png')
 
-        self.player = Player.Player(1100, 650)
+        self.player = Player.Player()
         self.Friend = Friend.Friend(30, 40)
+        # self.powerup = pygame.sprite.Group()
+        # self.powerup.add(Powerup.Powerup(50, 50))
+        # self.all_sprites = pygame.sprite.Group(tuple(self.powerup) + (self.player,))
 
     def mainloop(self):
         while True:
@@ -45,11 +49,19 @@ class Controller:
             self.screen.blit(self.background, (0, 0))
             self.screen.blit(self.player.image, (self.player.rect.x, self.player.rect.y))
             self.screen.blit(self.Friend.image, (self.Friend.rect.x, self.Friend.rect.y))
+            # self.screen.blit(self.powerup.image, (self.powerup.rect.x, self.powerup.rect.y))
             pygame.display.flip()
 
             #Set win condition
             if pygame.sprite.collide_rect(self.player, self.Friend):
                 self.state = "GAMEOVER"
+
+            # collide = pygame.sprite.spritecollide(self.player, self.powerup, False)
+            # if collide:
+            #     self.powerup.kill()
+
+            # pygame.display.flip()
+
 
     def gameOver(self):
         myfont = pygame.font.SysFont('comicsans', 30)
