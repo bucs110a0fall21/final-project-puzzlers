@@ -21,7 +21,8 @@ class Controller:
 
         self.player = Player.Player()
         self.Friend = Friend.Friend(30, 40)
-        self.isjump = False
+
+
         # self.powerup = pygame.sprite.Group()
         # self.powerup.add(Powerup.Powerup(50, 50))
         # self.all_sprites = pygame.sprite.Group(tuple(self.powerup) + (self.player,))
@@ -58,6 +59,14 @@ class Controller:
                         self.player.move("left")
                     elif(event.key == pygame.K_RIGHT):
                         self.player.move("right")
+                if self.player.rect.left < 0:
+                    self.player.rect.left = 0
+                if self.player.rect.right > self.screen_width:
+                    self.player.rect.right = self.screen_width
+                if self.player.rect.top <= 0:
+                    self.player.rect.top = 0
+                if self.player.rect.bottom >= self.screen_height:
+                    self.player.rect.bottom = self.screen_height
 
             pygame.display.update()
             self.screen.blit(self.background, (0, 0))
