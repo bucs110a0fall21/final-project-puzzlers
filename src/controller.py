@@ -32,6 +32,16 @@ class Controller:
                 self.gameLoop()
             elif(self.state == "GAMEOVER"):
                 self.gameOver()
+                
+    def startScreen(self):
+        self.screen.fill(90, 150, 250)
+        myfont = pygame.font.SysFont(None, 30)
+        message = myfont.render('Finding A Friend', False, (230, 240, 250))
+        startmessage = myfont.render('Press space to start', False (230, 240, 250))
+        self.screen.blit(message, (self.width//3, self.height//2))
+        self.screen.blit(startmessage, (self.width*1.5, self.height//2)
+        pygame.display.flip()
+        
 
     def gameLoop(self):
         while self.state == "GAME":
