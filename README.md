@@ -82,7 +82,7 @@ The Project is broken down into the following file structure:
 |  5  | Hold left arrow |  Player continually moves left |  |
 |  6  | Press right arrow  | Player moves right |  |
 |  7  | Hold right arrow  |  Player continually moves right |  |
-|  8  | Press space key | Player jumps then falls back to the ground  |   |
+|  8  | Press or hold up or down key | Player moves up or down accordingly and keepings going in direction if key held down |   |
 |  9  |  Player rect touches 'Friend' rect | 1) Game ends 2) A scoreboard is displayed showing past completion times & play again directions | |
 |  10  | Tap "r" | The game resets (only works when the game is over)  | |
 

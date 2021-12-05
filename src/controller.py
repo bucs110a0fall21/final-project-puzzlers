@@ -9,18 +9,19 @@ import sys
 class Controller:
     def __init__(self):
         pygame.init()
-        self.screen_width = 1280
-        self.screen_height = 720
+        self.screen_width = 1170
+        self.screen_height = 600
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         self.clock = pygame.time.Clock()
         self.fps = 60
         pygame.font.init()
 
         self.state = "GAME"
-        self.background = pygame.image.load('assets/forestbackground.png')
+        self.background = pygame.image.load('assets/background.png')
 
         self.player = Player.Player()
         self.Friend = Friend.Friend(30, 40)
+        self.isjump = False
         # self.powerup = pygame.sprite.Group()
         # self.powerup.add(Powerup.Powerup(50, 50))
         # self.all_sprites = pygame.sprite.Group(tuple(self.powerup) + (self.player,))
@@ -35,15 +36,18 @@ class Controller:
     def gameLoop(self):
         while self.state == "GAME":
             for event in pygame.event.get():
+                keys = pygame.key.get_pressed()
                 if event.type == pygame.QUIT:
                     sys.exit()
-                if event.type == pygame.KEYDOWN:
+                elif event.type == pygame.KEYDOWN:
                     if(event.key == pygame.K_UP):
-                        self.player.move_up()
+                        self.player.move("up")
+                    elif(event.key == pygame.K_DOWN):
+                        self.player.move("down")
                     elif(event.key == pygame.K_LEFT):
-                        self.player.move_left()
+                        self.player.move("left")
                     elif(event.key == pygame.K_RIGHT):
-                        self.player.move_right()
+                        self.player.move("right")
 
             pygame.display.update()
             self.screen.blit(self.background, (0, 0))
