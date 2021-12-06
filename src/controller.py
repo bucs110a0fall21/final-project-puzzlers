@@ -22,21 +22,16 @@ class Controller:
 
         self.player = Player.Player()
         self.Friend = Friend.Friend()
+        self.Timer = Timer.Timer()
 
-        #self.SpikeFish = SpikeFish.SpikeFish()
         self.block = pygame.sprite.Group()
-        num_SpikeFish = 14
+        num_SpikeFish = 0 #edit number of enemies
         for i in range(num_SpikeFish):
-            x = random.randrange(150, 1000)
-            y = random.randrange(45, 550)
+            x = random.randrange(150, 910)
+            y = random.randrange(45, 510)
             self.block.add(SpikeFish.SpikeFish(x, y))
 
         self.waitstate = True
-
-
-        # self.powerup = pygame.sprite.Group()
-        # self.powerup.add(Powerup.Powerup(50, 50))
-        # self.all_sprites = pygame.sprite.Group(tuple(self.powerup) + (self.player,))
 
     def mainloop(self):
         while True:
@@ -88,28 +83,24 @@ class Controller:
             self.screen.blit(self.player.image, (self.player.rect.x, self.player.rect.y))
             self.screen.blit(self.Friend.image, (self.Friend.rect.x, self.Friend.rect.y))
             self.block.draw(self.screen)
-            # self.screen.blit(self.powerup.image, (self.powerup.rect.x, self.powerup.rect.y))
             pygame.display.flip()
 
             #Set win condition
             if pygame.sprite.collide_rect(self.player, self.Friend):
                 self.state = "GAMEOVER"
 
+            # Makes SpikeFish 'repel' the player from colliding
             blocked = pygame.sprite.spritecollide(self.player, self.block, False)
             if (blocked):
                 self.player.rect.x -= 1
                 self.player.rect.y -= 1
 
-            # collide = pygame.sprite.spritecollide(self.player, self.powerup, False)
-            # if collide:
-            #     self.powerup.kill()
-
-            # pygame.display.flip()
-
 
     def gameOver(self):
         myfont = pygame.font.SysFont('comicsans', 30)
         message = myfont.render('Congrats!', False, (0, 0, 0))
+        finalTime = myfont.render(str(self.Timer.counting_string), True, (0, 0, 0))
+        self.screen.blit(finalTime, (1170 / 2, 600 / 2))
         self.screen.blit(message, (1280 / 2, 720 / 2))
         pygame.display.flip()
         while True:

@@ -9,6 +9,7 @@ class Timer:
         returns: none
         """
         self.timeLoop = True
+        self.counting_string = ""
 
     def timer(self):
         """
@@ -17,12 +18,13 @@ class Timer:
         returns: none
         """
         sec = 0
-        min = 0
+        minu = 0
         while self.timeLoop == True:
             sec += 1
             time.sleep(1)
             if sec == 60:
                 sec = 0
-                min += 1
+                minu += 1
+            self.counting_string = "%s:%s" % (minu, sec)
 
 
