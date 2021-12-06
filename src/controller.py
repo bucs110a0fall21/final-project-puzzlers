@@ -27,7 +27,7 @@ class Controller:
         self.block = pygame.sprite.Group()
         num_SpikeFish = 14
         for i in range(num_SpikeFish):
-            x = random.randrange(100, 1000)
+            x = random.randrange(150, 1000)
             y = random.randrange(45, 550)
             self.block.add(SpikeFish.SpikeFish(x, y))
 
@@ -95,6 +95,11 @@ class Controller:
             if pygame.sprite.collide_rect(self.player, self.Friend):
                 self.state = "GAMEOVER"
 
+            blocked = pygame.sprite.spritecollide(self.player, self.block, False)
+            if (blocked):
+                self.player.rect.x -= 1
+                self.player.rect.y -= 1
+
             # collide = pygame.sprite.spritecollide(self.player, self.powerup, False)
             # if collide:
             #     self.powerup.kill()
@@ -111,8 +116,6 @@ class Controller:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-
-
 
 
 pygame.quit()
