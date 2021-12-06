@@ -1,6 +1,8 @@
 from src import Player
 from src import Friend
 from src import Timer
+from src import SpikeFish
+import random
 import pygame
 import sys
 
@@ -19,8 +21,16 @@ class Controller:
         self.background = pygame.image.load('assets/background.png')
 
         self.player = Player.Player()
-        self.Friend = Friend.Friend(30, 40)
-        
+        self.Friend = Friend.Friend()
+
+        #self.SpikeFish = SpikeFish.SpikeFish()
+        self.block = pygame.sprite.Group()
+        num_SpikeFish = 14
+        for i in range(num_SpikeFish):
+            x = random.randrange(100, 1000)
+            y = random.randrange(45, 550)
+            self.block.add(SpikeFish.SpikeFish(x, y))
+
         self.waitstate = True
 
 
@@ -39,7 +49,7 @@ class Controller:
         self.screen.fill(90, 150, 250)
         myfont = pygame.font.SysFont('comicsans', 30)
         message = myfont.render('Finding A Friend', False, (230, 240, 250))
-        startmessage = myfont.render('Press space to start', False (230, 240, 250))
+        startmessage = myfont.render('Press space to start', False, (230, 240, 250))
         self.screen.blit(message, (self.width//3, self.height//2))
         self.screen.blit(startmessage, (self.width*1.5, self.height//2))
         pygame.display.flip()
@@ -77,6 +87,7 @@ class Controller:
             self.screen.blit(self.background, (0, 0))
             self.screen.blit(self.player.image, (self.player.rect.x, self.player.rect.y))
             self.screen.blit(self.Friend.image, (self.Friend.rect.x, self.Friend.rect.y))
+            self.block.draw(self.screen)
             # self.screen.blit(self.powerup.image, (self.powerup.rect.x, self.powerup.rect.y))
             pygame.display.flip()
 
