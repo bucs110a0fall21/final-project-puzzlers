@@ -1,6 +1,6 @@
 from src import Player
 from src import Friend
-from src import Timer
+# from src import Timer
 from src import SpikeFish
 import random
 import pygame
@@ -21,17 +21,10 @@ class Controller:
         self.background = pygame.image.load('assets/background.png')
 
         self.player = Player.Player()
-<<<<<<< HEAD
-        self.Friend = Friend.Friend(30, 40)
-        self.timer, self.text_timer = 10, '10'.rjust(3)
-        self.font_timer = pygame.font.SysFont(None, 30)
-        self.font = pygame.font.SysFont(None, 30)
-=======
         self.Friend = Friend.Friend()
-        self.Timer = Timer.Timer()
->>>>>>> 7834c4360732c43b18ce11c8fb67fc9c6be67352
 
         self.block = pygame.sprite.Group()
+
         num_SpikeFish = 5 #edit number of enemies
         for i in range(num_SpikeFish):
             x = random.randrange(150, 910)
@@ -39,6 +32,10 @@ class Controller:
             self.block.add(SpikeFish.SpikeFish(x, y))
 
         self.waitstate = True
+
+        self.timer, self.text_timer = 10, '10'.rjust(3)
+        self.font_timer = pygame.font.SysFont(None, 30)
+        self.font = pygame.font.SysFont(None, 30)
 
     def mainloop(self):
         while True:
@@ -96,25 +93,17 @@ class Controller:
             if pygame.sprite.collide_rect(self.player, self.Friend):
                 self.state = "GAMEOVER"
 
-<<<<<<< HEAD
-            # collide = pygame.sprite.spritecollide(self.player, self.powerup, False)
-            # if collide:
-            #     self.powerup.kill()
-
-            # pygame.display.flip()
             self.timer += 1
             self.clock.tick(60)
             timer = self.font_timer.render(str(self.timer).rjust(3), False, (0, 0, 0))
             update_text_timer = self.screen.blit(timer, (10, 10))
             pygame.display.update(update_text_timer)
-=======
+
             # Makes SpikeFish 'repel' the player from colliding
             blocked = pygame.sprite.spritecollide(self.player, self.block, False)
             if (blocked):
                 self.player.rect.x -= 1
                 self.player.rect.y -= 1
->>>>>>> 7834c4360732c43b18ce11c8fb67fc9c6be67352
-
 
     def gameOver(self):
         myfont = pygame.font.SysFont('comicsans', 30)
