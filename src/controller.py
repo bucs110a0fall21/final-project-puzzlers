@@ -9,18 +9,21 @@ import sys
 class Controller:
     def __init__(self):
         pygame.init()
+        pygame.font.init()
         self.screen_width = 1170
         self.screen_height = 600
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         self.clock = pygame.time.Clock()
         self.fps = 60
-        pygame.font.init()
 
         self.state = "GAME"
         self.background = pygame.image.load('assets/background.png')
 
         self.player = Player.Player()
         self.Friend = Friend.Friend(30, 40)
+        self.timer, self.text_timer = 10, '10'.rjust(3)
+        self.font_timer = pygame.font.SysFont(None, 30)
+        self.font = pygame.font.SysFont(None, 30)
 
 
         # self.powerup = pygame.sprite.Group()
@@ -74,6 +77,11 @@ class Controller:
             #     self.powerup.kill()
 
             # pygame.display.flip()
+            self.timer += 1
+            self.clock.tick(60)
+            timer = self.font_timer.render(str(self.timer).rjust(3), False, (0, 0, 0))
+            update_text_timer = self.screen.blit(timer, (10, 10))
+            pygame.display.update(update_text_timer)
 
 
     def gameOver(self):
