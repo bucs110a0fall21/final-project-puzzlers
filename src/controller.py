@@ -1,6 +1,6 @@
 from src import Player
 from src import Friend
-from src import Timer
+# from src import Timer
 from src import SpikeFish
 import random
 import pygame
@@ -24,13 +24,15 @@ class Controller:
         self.Friend = Friend.Friend()
 
         self.block = pygame.sprite.Group()
-        num_SpikeFish = 0 #edit number of enemies
+
+        num_SpikeFish = 5 #edit number of enemies
         for i in range(num_SpikeFish):
             x = random.randrange(150, 910)
             y = random.randrange(45, 510)
             self.block.add(SpikeFish.SpikeFish(x, y))
 
         self.waitstate = True
+
         self.timer, self.text_timer = 10, '10'.rjust(3)
         self.font_timer = pygame.font.SysFont(None, 30)
         self.font = pygame.font.SysFont(None, 30)
@@ -106,8 +108,6 @@ class Controller:
     def gameOver(self):
         myfont = pygame.font.SysFont('comicsans', 30)
         message = myfont.render('Congrats!', False, (0, 0, 0))
-        finalTime = myfont.render(str(self.Timer.counting_string), True, (0, 0, 0))
-        self.screen.blit(finalTime, (1170 / 2, 600 / 2))
         self.screen.blit(message, (1280 / 2, 720 / 2))
         pygame.display.flip()
         while True:
