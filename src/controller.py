@@ -21,6 +21,8 @@ class Controller:
 
         self.player = Player.Player()
         self.Friend = Friend.Friend(30, 40)
+        
+        self.waitstate = True
 
 
         # self.powerup = pygame.sprite.Group()
@@ -36,12 +38,16 @@ class Controller:
                 
     def startScreen(self):
         self.screen.fill(90, 150, 250)
-        myfont = pygame.font.SysFont(None, 30)
+        myfont = pygame.font.SysFont(comicsans, 30)
         message = myfont.render('Finding A Friend', False, (230, 240, 250))
         startmessage = myfont.render('Press space to start', False (230, 240, 250))
         self.screen.blit(message, (self.width//3, self.height//2))
         self.screen.blit(startmessage, (self.width*1.5, self.height//2)
         pygame.display.flip()
+        while self.waitstate == True:
+        	for event in pygame.evemt.get():
+        		if event.type = pygame.KEYUP:
+        			self.waitstate = False
         
 
     def gameLoop(self):
