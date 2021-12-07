@@ -19,11 +19,19 @@ class Controller:
 
         self.state = "GAME"
         self.background = pygame.image.load('assets/background.png')
+        
+        self.run = True
 
         self.player = Player.Player()
+<<<<<<< HEAD
+        self.Friend = Friend.Friend(30, 40)
+        
+        
+=======
         self.Friend = Friend.Friend()
 
         self.block = pygame.sprite.Group()
+>>>>>>> e69342ef5db10210379669c1f30db09054f4e522
 
         num_SpikeFish = 5 #edit number of enemies
         for i in range(num_SpikeFish):
@@ -45,9 +53,41 @@ class Controller:
                 self.gameOver()
                 
     def startScreen(self):
+        position = pygame.mouse.get_pos()
+    	  startbutton = pygame.Rect(self.width//3, self.height//2, 200, 100)
+    	  instructionsbutton = pygame.Rect(self.width//2, self.height//2, 200, 100)
         self.screen.fill(90, 150, 250)
         myfont = pygame.font.SysFont('comicsans', 30)
         message = myfont.render('Finding A Friend', False, (230, 240, 250))
+<<<<<<< HEAD
+        self.screen.blit(message, (self.width//4, self.height//2))
+        clicked = False
+        for event in pygame.event.get():
+    	      if event.type == pygame.QUIT:
+    	      	sys.exit()
+    	      if startbutton.collidepoint(pos):
+    	      	if clicked:
+    	      		gameLoop()
+    	      if instructions.collidepoint(pos):
+    	      	if clicked:
+    	      		instructions()
+    	  pygame.display.flip()
+        			
+    def instructions(self):
+    	  self.run = True
+    	  while self.run = True:
+    	  	   self.screen.fill(90, 150, 250)
+    	    	myfont = pygame.font.SysFont(comicsans, 30)
+    	  	   instructionmessage = myfont.render('Use arrow keys to move', False, (230, 240, 250))
+    	   	self.screen.blit(instructionmessage, (self.width//2, self.height//2))
+    	      for event in pygame.event.get():
+    	      	if event.type == pygame.QUIT:
+    	      		sys.exit()
+               if event.type == pygame.KEYDOWN:
+               	if event.key == pygame.K_ESCAPE:
+               		self.run = False
+            pygame.display.flip()
+=======
         startmessage = myfont.render('Press space to start', False, (230, 240, 250))
         self.screen.blit(message, (self.width//3, self.height//2))
         self.screen.blit(startmessage, (self.width*1.5, self.height//2))
@@ -56,6 +96,7 @@ class Controller:
             for event in pygame.evemt.get():
                 if event.type == pygame.KEYUP:
                     self.waitstate = False
+>>>>>>> e69342ef5db10210379669c1f30db09054f4e522
         
 
     def gameLoop(self):
