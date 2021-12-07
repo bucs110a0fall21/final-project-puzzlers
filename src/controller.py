@@ -17,13 +17,13 @@ class Controller:
         self.clock = pygame.time.Clock()
         self.fps = 60
 
-        self.state = "GAME"
+        self.state = "START"
         self.background = pygame.image.load('assets/background.png')
         
         self.run = True
 
         self.player = Player.Player()
-        self.Friend = Friend.Friend(30, 40)
+        #self.Friend = Friend.Friend(30, 40)
         
         
         self.Friend = Friend.Friend()
@@ -45,54 +45,57 @@ class Controller:
     def mainloop(self):
         while True:
             if(self.state == "GAME"):
-                self.gameLoop()
+                self.gameLoop() 
+            elif(self.state == "START"):
+                self.startScreen()
             elif(self.state == "GAMEOVER"):
                 self.gameOver()
                 
     def startScreen(self):
-    	  while True:
-            position = pygame.mouse.get_pos()
-            startbutton = pygame.Rect(self.width//3, self.height//2, 200, 100)
-            instructionsbutton = pygame.Rect(self.width//2, self.height//2, 200, 100)
-            self.screen.fill(90, 150, 250)
-            myfont = pygame.font.SysFont('comicsans', 30)
-            message = myfont.render('Finding A Friend', False, (230, 240, 250))
-            self.screen.blit(message, (self.width//4, self.height//2))
-    	      if startbutton.collidepoint(pos):
-    	      	 if clicked:
-    	      		  gameLoop()
-    	      if instructions.collidepoint(pos):
-    	      	 if clicked:
-    	      	     instructions()
-    	      pygame.draw.rect(self.screen, (60, 100, 170), startbutton)
-    	      pygame.draw.rect(self.screen, (60, 100, 170), instructionsbutton)
-    	      clicked = False
-    	      for event in pygame.event.get():
-    	      	if event.type == pygame.QUIT:
-    	      		sys.exit()
-    	      	if event.type == pygame.KEYDOWN:
-    	      		if event.key == pygame.K_ESCAPE:
-    	      			sys.exit()
-    	      	if event.type == pygame.MOUSEBUTTONDOWN:
-    	      		if event.button == 1:
-    	      			clicked = True
-    	      pygame.display.flip()
+    	  run = True
+    	  while run:
+    	  	   pos = pygame.mouse.get_pos()
+    	  	   startbutton = pygame.Rect(485, self.screen_height//3, 200, 100)
+    	  	   instructionsbutton = pygame.Rect(485, self.screen_height//2, 200, 100)
+    	  	   self.screen.fill((90, 150, 250))
+    	  	   myfont = pygame.font.SysFont('comicsans', 30)
+    	  	   message = myfont.render('Finding A Friend', False, (230, 240, 250))
+    	  	   self.screen.blit(message, (self.screen_width//4, self.screen_height//2))
+    	  	   if startbutton.collidepoint(pos):
+    	  	   	if clicked:
+    	  	   		self.state = "GAME"
+    	  	   		run = False
+    	  	   if instructionsbutton.collidepoint(pos):
+    	  	   	if clicked:
+    	  	   		self.instructions()
+    	  	   pygame.draw.rect(self.screen, (60, 100, 170), startbutton)
+    	  	   pygame.draw.rect(self.screen, (60, 60, 170), instructionsbutton)
+    	  	   clicked = False
+    	  	   for event in pygame.event.get():
+    	  	   	if event.type == pygame.QUIT:
+    	  	   		sys.exit()
+    	  	   	if event.type == pygame.KEYDOWN:
+    	  	   		if event.key == pygame.K_ESCAPE:
+    	  	   			sys.exit()
+    	  	   	if event.type == pygame.MOUSEBUTTONDOWN:
+    	  	   		if event.button == 1:
+    	  	   			clicked = True
+    	  	   pygame.display.flip()
         			
     def instructions(self):
     	  self.run = True
-    	  while self.run = True:
-    	  	   self.screen.fill(90, 150, 250)
-    	    	myfont = pygame.font.SysFont(comicsans, 30)
+    	  while self.run == True:
+    	  	   self.screen.fill((90, 150, 250))
+    	  	   myfont = pygame.font.SysFont("comicsans", 30)
     	  	   instructionmessage = myfont.render('Use arrow keys to move', False, (230, 240, 250))
-    	   	self.screen.blit(instructionmessage, (self.width//2, self.height//2))
-    	      for event in pygame.event.get():
-    	      	if event.type == pygame.QUIT:
-    	      		sys.exit()
-               if event.type == pygame.KEYDOWN:
-               	if event.key == pygame.K_ESCAPE:
-               		self.run = False
-            pygame.display.flip()
-        
+    	  	   self.screen.blit(instructionmessage, (self.screen_width//2, self.screen_height//2))
+    	  	   for event in pygame.event.get():
+    	  	   	if event.type == pygame.QUIT:
+    	  	   		sys.exit()
+    	  	   	if event.type == pygame.KEYDOWN:
+    	  	   		if event.key == pygame.K_ESCAPE:
+    	  	   			self.run = False
+    	  	   pygame.display.flip()
 
     def gameLoop(self):
         while self.state == "GAME":
