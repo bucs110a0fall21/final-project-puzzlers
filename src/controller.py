@@ -1,7 +1,8 @@
 from src import Player
 from src import Friend
-from src import Timer
-# from src import Powerup
+# from src import Timer
+from src import SpikeFish
+import random
 import pygame
 import sys
 
@@ -9,12 +10,12 @@ import sys
 class Controller:
     def __init__(self):
         pygame.init()
+        pygame.font.init()
         self.screen_width = 1170
         self.screen_height = 600
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         self.clock = pygame.time.Clock()
         self.fps = 60
-        pygame.font.init()
 
         self.state = "GAME"
         self.background = pygame.image.load('assets/background.png')
@@ -22,14 +23,27 @@ class Controller:
         self.run = True
 
         self.player = Player.Player()
+<<<<<<< HEAD
         self.Friend = Friend.Friend(30, 40)
         
         
+=======
+        self.Friend = Friend.Friend()
 
+        self.block = pygame.sprite.Group()
+>>>>>>> e69342ef5db10210379669c1f30db09054f4e522
 
-        # self.powerup = pygame.sprite.Group()
-        # self.powerup.add(Powerup.Powerup(50, 50))
-        # self.all_sprites = pygame.sprite.Group(tuple(self.powerup) + (self.player,))
+        num_SpikeFish = 5 #edit number of enemies
+        for i in range(num_SpikeFish):
+            x = random.randrange(150, 910)
+            y = random.randrange(45, 510)
+            self.block.add(SpikeFish.SpikeFish(x, y))
+
+        self.waitstate = True
+
+        self.timer, self.text_timer = 10, '10'.rjust(3)
+        self.font_timer = pygame.font.SysFont(None, 30)
+        self.font = pygame.font.SysFont(None, 30)
 
     def mainloop(self):
         while True:
@@ -43,8 +57,9 @@ class Controller:
     	  startbutton = pygame.Rect(self.width//3, self.height//2, 200, 100)
     	  instructionsbutton = pygame.Rect(self.width//2, self.height//2, 200, 100)
         self.screen.fill(90, 150, 250)
-        myfont = pygame.font.SysFont(comicsans, 30)
+        myfont = pygame.font.SysFont('comicsans', 30)
         message = myfont.render('Finding A Friend', False, (230, 240, 250))
+<<<<<<< HEAD
         self.screen.blit(message, (self.width//4, self.height//2))
         clicked = False
         for event in pygame.event.get():
@@ -72,6 +87,16 @@ class Controller:
                	if event.key == pygame.K_ESCAPE:
                		self.run = False
             pygame.display.flip()
+=======
+        startmessage = myfont.render('Press space to start', False, (230, 240, 250))
+        self.screen.blit(message, (self.width//3, self.height//2))
+        self.screen.blit(startmessage, (self.width*1.5, self.height//2))
+        pygame.display.flip()
+        while self.waitstate == True:
+            for event in pygame.evemt.get():
+                if event.type == pygame.KEYUP:
+                    self.waitstate = False
+>>>>>>> e69342ef5db10210379669c1f30db09054f4e522
         
 
     def gameLoop(self):
@@ -102,19 +127,24 @@ class Controller:
             self.screen.blit(self.background, (0, 0))
             self.screen.blit(self.player.image, (self.player.rect.x, self.player.rect.y))
             self.screen.blit(self.Friend.image, (self.Friend.rect.x, self.Friend.rect.y))
-            # self.screen.blit(self.powerup.image, (self.powerup.rect.x, self.powerup.rect.y))
+            self.block.draw(self.screen)
             pygame.display.flip()
 
             #Set win condition
             if pygame.sprite.collide_rect(self.player, self.Friend):
                 self.state = "GAMEOVER"
 
-            # collide = pygame.sprite.spritecollide(self.player, self.powerup, False)
-            # if collide:
-            #     self.powerup.kill()
+            self.timer += 1
+            self.clock.tick(60)
+            timer = self.font_timer.render(str(self.timer).rjust(3), False, (0, 0, 0))
+            update_text_timer = self.screen.blit(timer, (10, 10))
+            pygame.display.update(update_text_timer)
 
-            # pygame.display.flip()
-
+            # Makes SpikeFish 'repel' the player from colliding
+            blocked = pygame.sprite.spritecollide(self.player, self.block, False)
+            if (blocked):
+                self.player.rect.x -= 1
+                self.player.rect.y -= 1
 
     def gameOver(self):
         myfont = pygame.font.SysFont('comicsans', 30)
@@ -125,8 +155,6 @@ class Controller:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-
-
 
 
 pygame.quit()
