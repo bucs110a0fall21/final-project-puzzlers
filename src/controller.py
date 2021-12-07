@@ -1,6 +1,6 @@
+from pygame.sprite import collide_mask
 from src import Player
 from src import Friend
-# from src import Timer
 from src import SpikeFish
 import random
 import pygame
@@ -16,6 +16,7 @@ class Controller:
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         self.clock = pygame.time.Clock()
         self.fps = 60
+        pygame.key.set_repeat(1, 50)
 
         self.state = "GAME"
         self.background = pygame.image.load('assets/background.png')
@@ -25,7 +26,7 @@ class Controller:
 
         self.block = pygame.sprite.Group()
 
-        num_SpikeFish = 5 #edit number of enemies
+        num_SpikeFish = 10 #edit number of enemies
         for i in range(num_SpikeFish):
             x = random.randrange(150, 910)
             y = random.randrange(45, 510)
@@ -38,6 +39,10 @@ class Controller:
         self.font = pygame.font.SysFont(None, 30)
 
     def mainloop(self):
+        # ""
+        #     Checks state of the game & keeps game going until game is over
+        #     returns: none
+        # ""
         while True:
             if(self.state == "GAME"):
                 self.gameLoop()
@@ -59,6 +64,14 @@ class Controller:
         
 
     def gameLoop(self):
+        # ""
+        #     allows user to move Totoro around screen,
+        #     checks for collision with spikeFish and repels user back if collides, 
+        #     sets win conditions, 
+        #     keep track of time took to reach friend, 
+        #     redraws and updates screen
+        #     returns: none
+        # ""
         while self.state == "GAME":
             for event in pygame.event.get():
                 keys = pygame.key.get_pressed()
@@ -87,14 +100,13 @@ class Controller:
             self.screen.blit(self.player.image, (self.player.rect.x, self.player.rect.y))
             self.screen.blit(self.Friend.image, (self.Friend.rect.x, self.Friend.rect.y))
             self.block.draw(self.screen)
-            pygame.display.flip()
 
             #Set win condition
             if pygame.sprite.collide_rect(self.player, self.Friend):
                 self.state = "GAMEOVER"
 
             self.timer += 1
-            self.clock.tick(60)
+            self.clock(60)
             timer = self.font_timer.render(str(self.timer).rjust(3), False, (0, 0, 0))
             update_text_timer = self.screen.blit(timer, (10, 10))
             pygame.display.update(update_text_timer)
@@ -105,11 +117,23 @@ class Controller:
                 self.player.rect.x -= 1
                 self.player.rect.y -= 1
 
+            pygame.display.flip()
+            
     def gameOver(self):
+        # ""
+        #     displays "Congrats" when game ends and shows end screen,
+        #     which shows the previous and current time record it took to finish game,
+        #     as well as a restart button
+        #     returns: none
+        # ""
         myfont = pygame.font.SysFont('comicsans', 30)
         message = myfont.render('Congrats!', False, (0, 0, 0))
         self.screen.blit(message, (1280 / 2, 720 / 2))
         pygame.display.flip()
+        pygame.time.wait(500)
+        self.screen.blit(self.background)
+        draw_text(self.screen, "GAMEOVER!", 64, self.screen_width / 2, self.screen_height / 4)
+
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
