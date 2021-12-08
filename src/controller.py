@@ -3,6 +3,7 @@ from src import Friend
 # from src import Timer
 from src import SpikeFish
 # from src import Button
+import json
 import random
 import pygame
 import sys
@@ -27,20 +28,31 @@ class Controller:
         self.player = Player.Player()
         self.Friend = Friend.Friend()
         # self.button = Button.Button()
-
         self.block = pygame.sprite.Group()
+        self.reset()
 
-        num_SpikeFish = 12 #edit number of enemies
-        for i in range(num_SpikeFish):
-            x = random.randrange(150, 910)
-            y = random.randrange(45, 510)
-            self.block.add(SpikeFish.SpikeFish(x, y))
+        # num_SpikeFish = 12 #edit number of enemies
+        # for i in range(num_SpikeFish):
+        #     x = random.randrange(150, 910)
+        #     y = random.randrange(45, 510)
+        #     self.block.add(SpikeFish.SpikeFish(x, y))
 
-        self.waitstate = True
+        # self.waitstate = True
 
         self.timer, self.text_timer = 10, '10'.rjust(3)
         self.font_timer = pygame.font.SysFont(None, 30)
         self.font = pygame.font.SysFont(None, 30)
+
+    def reset(self):
+        self.block = pygame.sprite.Group()
+        self.player.rect.x = 50
+        self.player.rect.y = 50
+        self.timer = 0
+        num_SpikeFish = 12  # edit number of enemies
+        for i in range(num_SpikeFish):
+            x = random.randrange(150, 910)
+            y = random.randrange(45, 510)
+            self.block.add(SpikeFish.SpikeFish(x, y))
 
     def mainloop(self):
         # ""
@@ -98,13 +110,8 @@ class Controller:
             self.screen.blit(startmes, (530, 230))
             self.screen.blit(instructionsmes, (470, 370))
             pygame.display.flip()
-        			
+
     def instructions(self):
-    	#   '''
-    	#   Writes out the instructions to be displayed
-    	#   args: self
-    	#   return: none
-    	#   '''
         self.run = True
         while self.run == True:
             self.screen.fill((90, 150, 250))
@@ -128,7 +135,7 @@ class Controller:
             pygame.display.flip()
 
     def gameLoop(self):
-        # ""
+        # """
         #     allows user to move Totoro around screen,
         #     checks for collision with spikeFish and repels user back if collides, 
         #     sets win conditions, 
@@ -136,7 +143,7 @@ class Controller:
         #     redraws and updates screen
         #     args: self
         #     returns: none
-        # ""
+        # """
         while self.state == "GAME":
             for event in pygame.event.get():
                 keys = pygame.key.get_pressed()
@@ -201,16 +208,28 @@ class Controller:
          myfont = pygame.font.SysFont('comicsans', 40)
          text_time = 0
          run = True
+         current_time = self.timer / 100
 
          while run:
              pygame.time.delay(10)
              for event in pygame.event.get():
                  if event.type == pygame.QUIT:
                      run = False
-             current_time = pygame.time.get_ticks()
+
+             new_score = open("assets/high_scores.json", 'r')
+             scores = json.load(new_score)
+             new_score.close()
+             scores[1] = current_time
+             if scores[0] > current_time or scores[0] == 0:
+                 scores[0] = current_time
+
+             new_score = open("assets/high_scores.json", 'w')
+             json.dump(scores, new_score)
+             new_score.close()
+
              keys = pygame.key.get_pressed()
              self.screen.fill((240, 250, 240))
-             for i in range (1000):
+             for i in range(1000):
                  text_time += i
              if text_time > current_time:
                  text = myfont.render('congrats! game over', True, (0, 0, 0))
@@ -220,12 +239,13 @@ class Controller:
              pygame.display.update()
              if keys[pygame.K_ESCAPE]:
                  self.state = "GAME"
-                 self.player.rect.x = 50
-                 self.player.rect. y = 50
-                 self.timer = 0
-                 Controller.gameLoop(self)
+                 self.reset()
+                 # Controller.gameLoop(self)
+                 run = False
              elif keys[pygame.K_RETURN]: #need help getting back to menu screen when return is pressed
-                 self.state = "GAME"
-                 self.startScreen(self)
+                 self.state = "START"
+                 self.reset()
+                 run = False
+                 # self.startScreen(self)
 
-pygame.quit()       
+pygame.quit()
