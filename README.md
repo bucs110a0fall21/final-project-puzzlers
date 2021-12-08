@@ -59,9 +59,9 @@ The Project is broken down into the following file structure:
 
 << Worked as integration specialist by... >>
 
-### Front End Specialist - << name >>
+### Front End Specialist - Ashley Yu
 
-<< Front-end lead conducted significant research on... >>
+Front end specialist handled creating the start screen and instructions screen. Additionally, the front end specialist helped with the states in the mainloop and GUI. 
 
 ### Back End Specialist - << name >>
 
