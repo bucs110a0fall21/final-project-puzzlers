@@ -18,6 +18,7 @@ class Controller:
         self.clock = pygame.time.Clock()
         self.menubackground = pygame.Surface((self.screen_width, self.screen_height))
         self.fps = 60
+        pygame.key.set_repeat(1, 50)
 
         # self.state = "GAME"
         self.state = "START"
@@ -29,7 +30,7 @@ class Controller:
 
         self.block = pygame.sprite.Group()
 
-        num_SpikeFish = 5 #edit number of enemies
+        num_SpikeFish = 12 #edit number of enemies
         for i in range(num_SpikeFish):
             x = random.randrange(150, 910)
             y = random.randrange(45, 510)
