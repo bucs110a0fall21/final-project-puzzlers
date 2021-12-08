@@ -53,10 +53,12 @@ class Controller:
                 
     def startScreen(self):
     	  run = True
-    	  startbutton = pygame.Rect(485, self.screen_height//3, 200, 100)
-    	  instructionsbutton = pygame.Rect(485, self.screen_height//2, 200, 100)
-    	  myfont = pygame.font.SysFont('comicsans', 30)
-    	  message = myfont.render('Finding A Friend', False, (230, 240, 250))
+    	  startbutton = pygame.Rect(485, 200, 200, 100)
+    	  instructionsbutton = pygame.Rect(485, 350, 200, 100)
+    	  titlefont = pygame.font.SysFont("comicsans", 60)
+    	  message = titlefont.render('Finding A Friend', False, (230, 240, 250))
+    	  startmes = titlefont.render('Start', False, (230, 240, 250))
+    	  instructionsmes = titlefont.render('Instructions', False, (230, 240, 250))
     	  while run:
     	  	   pos = pygame.mouse.get_pos()
     	  	   clicked = False
@@ -82,7 +84,9 @@ class Controller:
     	  	   pygame.draw.rect(self.screen, (60, 100, 170), startbutton)
     	  	   pygame.draw.rect(self.screen, (60, 60, 170), instructionsbutton)
     	  	   #message
-    	  	   self.screen.blit(message, (self.screen_width//4, self.screen_height//2))
+    	  	   self.screen.blit(message, (415, self.screen_height//6))
+    	  	   self.screen.blit(startmes, (530, 230))
+    	  	   self.screen.blit(instructionsmes, (470, 370))
     	  	   pygame.display.flip()
         			
     def instructions(self):
