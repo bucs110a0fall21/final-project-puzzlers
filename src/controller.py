@@ -69,18 +69,19 @@ class Controller:
                 self.gameOver()
     
     def startScreen(self):
-        # ""
-        #     displays the starting menu screen which includes start and instructions buttons
-        #     args: self
-        #     return: none
-        # ""
+        """
+            displays the starting menu screen which includes start and instructions buttons
+            args: self
+            return: none
+        """
         run = True
         startbutton = pygame.Rect(485, 200, 200, 100)
         instructionsbutton = pygame.Rect(485, 350, 200, 100)
         titlefont = pygame.font.SysFont("comicsans", 60)
+        smallerfont = pygame.font.SysFont("comicsans", 40)
         message = titlefont.render('Finding A Friend', False, (230, 240, 250))
-        startmes = titlefont.render('Start', False, (230, 240, 250))
-        instructionsmes = titlefont.render('Instructions', False, (230, 240, 250))
+        startmes = smallerfont.render('Start', False, (230, 240, 250))
+        instructionsmes = smallerfont.render('Instructions', False, (230, 240, 250))
         while run:
             pos = pygame.mouse.get_pos()
             clicked = False
@@ -107,8 +108,8 @@ class Controller:
             pygame.draw.rect(self.screen, (60, 100, 170), startbutton)
             pygame.draw.rect(self.screen, (60, 60, 170), instructionsbutton)
             self.screen.blit(message, (415, self.screen_height//6))
-            self.screen.blit(startmes, (530, 230))
-            self.screen.blit(instructionsmes, (470, 370))
+            self.screen.blit(startmes, (550, 230))
+            self.screen.blit(instructionsmes, (500, 390))
             pygame.display.flip()
 
     def instructions(self):
@@ -194,8 +195,8 @@ class Controller:
             # Makes SpikeFish 'repel' the player from colliding
             blocked = pygame.sprite.spritecollide(self.player, self.block, False)
             if (blocked):
-                self.player.rect.x -= 1
-                self.player.rect.y -= 1
+                self.player.rect.x -= 2
+                self.player.rect.y -= 2
 
             pygame.display.flip()
 
