@@ -42,14 +42,11 @@ class Controller:
         self.font = pygame.font.SysFont(None, 30)
 
     def mainloop(self):
-<<<<<<< HEAD
         # ""
         #     Checks state of the game & keeps game going until game is over
         #     args: self
         #     returns: none
         # ""
-=======
->>>>>>> parent of c705854 (update)
         while True:
             if(self.state == "GAME"):
                 self.gameLoop()
@@ -131,7 +128,6 @@ class Controller:
     	  	   
 
     def gameLoop(self):
-<<<<<<< HEAD
         # ""
         #     allows user to move Totoro around screen,
         #     checks for collision with spikeFish and repels user back if collides, 
@@ -141,8 +137,6 @@ class Controller:
         #     args: self
         #     returns: none
         # ""
-=======
->>>>>>> parent of c705854 (update)
         while self.state == "GAME":
             for event in pygame.event.get():
                 keys = pygame.key.get_pressed()
@@ -185,13 +179,8 @@ class Controller:
 
             #displays and updates the time as soon as game starts
             self.timer += 1
-<<<<<<< HEAD
             # self.clock(60)
             timer = self.font_timer.render(str(self.timer/100).rjust(3), False, (0, 0, 0))
-=======
-            self.clock.tick(60)
-            timer = self.font_timer.render(str(self.timer).rjust(3), False, (0, 0, 0))
->>>>>>> parent of c705854 (update)
             update_text_timer = self.screen.blit(timer, (10, 10))
             pygame.display.update(update_text_timer)
 
@@ -201,7 +190,6 @@ class Controller:
                 self.player.rect.x -= 1
                 self.player.rect.y -= 1
 
-<<<<<<< HEAD
             pygame.display.flip()
 
     def gameOver(self):
@@ -241,17 +229,3 @@ class Controller:
                  self.startScreen(self)
 
 pygame.quit()       
-=======
-    def gameOver(self):
-        myfont = pygame.font.SysFont('comicsans', 30)
-        message = myfont.render('Congrats!', False, (0, 0, 0))
-        self.screen.blit(message, (1280 / 2, 720 / 2))
-        pygame.display.flip()
-        while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
-
-
-pygame.quit()
->>>>>>> parent of c705854 (update)
