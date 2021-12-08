@@ -126,7 +126,6 @@ class Controller:
                     if event.key == pygame.K_RETURN:
                         self.run = False
             pygame.display.flip()
-    	  	   
 
     def gameLoop(self):
         # ""
