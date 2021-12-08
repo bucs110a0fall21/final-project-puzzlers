@@ -53,23 +53,12 @@ class Controller:
                 
     def startScreen(self):
     	  run = True
+    	  startbutton = pygame.Rect(485, self.screen_height//3, 200, 100)
+    	  instructionsbutton = pygame.Rect(485, self.screen_height//2, 200, 100)
+    	  myfont = pygame.font.SysFont('comicsans', 30)
+    	  message = myfont.render('Finding A Friend', False, (230, 240, 250))
     	  while run:
     	  	   pos = pygame.mouse.get_pos()
-    	  	   startbutton = pygame.Rect(485, self.screen_height//3, 200, 100)
-    	  	   instructionsbutton = pygame.Rect(485, self.screen_height//2, 200, 100)
-    	  	   self.screen.fill((90, 150, 250))
-    	  	   myfont = pygame.font.SysFont('comicsans', 30)
-    	  	   message = myfont.render('Finding A Friend', False, (230, 240, 250))
-    	  	   self.screen.blit(message, (self.screen_width//4, self.screen_height//2))
-    	  	   if startbutton.collidepoint(pos):
-    	  	   	if clicked:
-    	  	   		self.state = "GAME"
-    	  	   		run = False
-    	  	   if instructionsbutton.collidepoint(pos):
-    	  	   	if clicked:
-    	  	   		self.instructions()
-    	  	   pygame.draw.rect(self.screen, (60, 100, 170), startbutton)
-    	  	   pygame.draw.rect(self.screen, (60, 60, 170), instructionsbutton)
     	  	   clicked = False
     	  	   for event in pygame.event.get():
     	  	   	if event.type == pygame.QUIT:
@@ -80,6 +69,20 @@ class Controller:
     	  	   	if event.type == pygame.MOUSEBUTTONDOWN:
     	  	   		if event.button == 1:
     	  	   			clicked = True
+    	  	   if startbutton.collidepoint(pos):
+    	  	   	if clicked:
+    	  	   		print('start')
+    	  	   		self.state = "GAME"
+    	  	   		run = False
+    	  	   if instructionsbutton.collidepoint(pos):
+    	  	   	if clicked:
+    	  	   		print('instructions')
+    	  	   		self.instructions()
+    	  	   self.screen.fill((90, 150, 250))
+    	  	   pygame.draw.rect(self.screen, (60, 100, 170), startbutton)
+    	  	   pygame.draw.rect(self.screen, (60, 60, 170), instructionsbutton)
+    	  	   #message
+    	  	   self.screen.blit(message, (self.screen_width//4, self.screen_height//2))
     	  	   pygame.display.flip()
         			
     def instructions(self):
@@ -87,8 +90,10 @@ class Controller:
     	  while self.run == True:
     	  	   self.screen.fill((90, 150, 250))
     	  	   myfont = pygame.font.SysFont("comicsans", 30)
+    	  	   goalmessage = myfont.render('Get to your friend as fast as possible', False, (230, 240, 250))
     	  	   instructionmessage = myfont.render('Use arrow keys to move', False, (230, 240, 250))
-    	  	   self.screen.blit(instructionmessage, (self.screen_width//2, self.screen_height//2))
+    	  	   self.screen.blit(instructionmessage, (485, self.screen_height//2))
+    	  	   self.screen.blit(goalmessage, (485, self.screen_height//2 -100))
     	  	   for event in pygame.event.get():
     	  	   	if event.type == pygame.QUIT:
     	  	   		sys.exit()
