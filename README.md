@@ -22,11 +22,7 @@ https://github.com/bucs110a0fall21/final-project-puzzlers
 ## User Interface Design *(Front End Specialist)*
 * << A wireframe or drawing of the user interface concept along with a short description of the interface. You should have one for each screen in your program. >>
     * For example, if your program has a start screen, game screen, and game over screen, you should include a wireframe / screenshot / drawing of each one and a short description of the components
-![gui1](etc/gui1.png)
-![gui2](etc/gui2.png)
-![gui3](etc/gui3.png)
-![gui4](etc/gui4.png)
-
+* << You should also have a screenshot of each screen for your final GUI >>
 
 ***        
 
