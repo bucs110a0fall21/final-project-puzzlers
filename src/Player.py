@@ -4,7 +4,7 @@ import pygame
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.speed = 8
+        self.speed = 7
         self.image = pygame.transform.scale(pygame.image.load('assets/totoro.png'), (140, 100))
         self.rect = self.image.get_rect()
 

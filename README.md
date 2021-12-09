@@ -36,9 +36,9 @@ https://github.com/bucs110a0fall21/final-project-puzzlers
     * ![class_diagram](assets/class_diagram.jpg)
     * This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm.
 * Classes
-    * class Player: creates the main character, totoro and sets move functions 
-    * class Friend: creates the friend character and sets its position
-    * class SpikeFish: creates the spikefish obstacles that will be called using randomized x and y values
+    * class Player: creates the main character, totoro and sets move functions
+    * class Friend: creates the friend character and sets its position on the screen
+    * class SpikeFish: creates the spikefish obstacles that will be called in Controller using randomized x and y values for random spawning within a part of the screen
 
 ## Project Structure *(Software Lead)*
 
@@ -66,7 +66,7 @@ The Project is broken down into the following file structure:
 
 ### Back End Specialist - Young Seo Hur
 
-The back end specialist wrote much of the data classes representing state, location, and behaviour. I drew the sketch of the classes and their purpose as well as the GUI design plan illustration. Lastly, I was the main debugger as well as functionality improver as I added or improved code to run smoother and accurately. 
+The back end specialist wrote much of the data classes representing state, location, and behaviour. I drew the sketch of the classes and their purposes and relationships as well as the GUI design plan illustration. Lastly, I was the main debugger as well as functionality improver as I added and improved code to run the characters' movements, start menu, gameover screen, and buttons more smoother and accurately. 
 
 ## Testing *(Software Lead)*
 * << Describe your testing strategy for your project. >>
