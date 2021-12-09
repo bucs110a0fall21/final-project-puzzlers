@@ -9,6 +9,11 @@ import sys
 
 class Controller:
     def __init__(self):
+        """
+        Intilizes the screen, timer and sprites required to run the program
+        args: self
+        returns: n/a
+        """
         pygame.init()
         pygame.font.init()
         self.screen_width = 1170
@@ -18,7 +23,6 @@ class Controller:
         self.fps = 60
         pygame.key.set_repeat(1, 50)
 
-        # self.state = "GAME"
         self.state = "START"
         self.background = pygame.image.load('assets/background.png')
 
@@ -32,22 +36,27 @@ class Controller:
         self.font = pygame.font.SysFont(None, 30)
 
     def reset(self):
+        """
+        reset function that allows the game to be reset with a buttonpress
+        args: self
+        returns: n/a
+        """
         self.block = pygame.sprite.Group()
         self.player.rect.x = 50
         self.player.rect.y = 50
         self.timer = 0
-        num_SpikeFish = 12  # edit number of enemies
+        num_SpikeFish = 0  # edit number of enemies
         for i in range(num_SpikeFish):
             x = random.randrange(150, 910)
             y = random.randrange(45, 510)
             self.block.add(SpikeFish.SpikeFish(x, y))
 
     def mainloop(self):
-        # ""
-        #     Checks state of the game & keeps game going until game is over
-        #     args: self
-        #     returns: none
-        # ""
+        """
+        initilizes the game loop which includes 3 possible game states: In the game, In the Main Menu and the End Screen Menu
+        args: self
+        returns: none
+        """
         while True:
             if (self.state == "GAME"):
                 self.gameLoop()
@@ -101,6 +110,11 @@ class Controller:
             pygame.display.flip()
 
     def instructions(self):
+        """
+            displays a screen with game instructions
+            args: self
+            return: none
+        """
         self.run = True
         while self.run == True:
             self.screen.fill((90, 150, 250))
@@ -125,15 +139,15 @@ class Controller:
             pygame.display.flip()
 
     def gameLoop(self):
-        # """
-        #     allows user to move Totoro around screen,
-        #     checks for collision with spikeFish and repels user back if collides,
-        #     sets win conditions,
-        #     keep track of time took to reach friend,
-        #     redraws and updates screen
-        #     args: self
-        #     returns: none
-        # """
+        """
+        allows user to move Totoro around screen,
+        checks for collision with spikeFish and repels user back if collides,
+        sets win conditions,
+        keep track of time took to reach friend,
+        redraws and updates screen
+        args: self
+        returns: none
+        """
         start_tick = pygame.time.get_ticks()
         while self.state == "GAME":
             for event in pygame.event.get():
@@ -190,11 +204,11 @@ class Controller:
             pygame.display.flip()
 
     def gameOver(self):
-        # ""
-        #     displays game over screen, allows user to replay game or return to menu
-        #     args: self
-        #     return: none
-        # ""
+        """
+        displays game over screen, allows user to replay game or return to menu
+        args: self
+        return: none
+        """
         myfont = pygame.font.SysFont('comicsans', 40)
         text_time = 0
         run = True

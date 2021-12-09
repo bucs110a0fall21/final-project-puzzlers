@@ -3,6 +3,11 @@ import pygame
 
 class Friend(pygame.sprite.Sprite):
     def __init__(self):
+        """
+        initlizes friend rect size and image as well as location
+        args: self
+        returns: n/a
+        """
         super().__init__()
         self.image = pygame.transform.scale(pygame.image.load('assets/friend.png'), (160, 180))
 
