@@ -61,7 +61,7 @@ The Project is broken down into the following file structure:
 
 ### Front End Specialist - Ashley Yu
 
-Front end specialist handled creating the start screen and instructions screen methods. Additionally, the front end specialist helped with the states in the mainloop, gameloop and GUI. 
+Front end specialist handled creating the start screen and instructions screen methods. Additionally, the front end specialist helped with implementing the states into the mainloop and gameloop. Collaborated with the backend specialist with the GUI.
 
 ### Back End Specialist - << name >>
 
