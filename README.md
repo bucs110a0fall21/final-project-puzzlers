@@ -21,8 +21,10 @@ they can once again rejoyce!
 ***    
 
 ## User Interface Design *(Front End Specialist)*
-* << A wireframe or drawing of the user interface concept along with a short description of the interface. You should have one for each screen in your program. >>
-    * For example, if your program has a start screen, game screen, and game over screen, you should include a wireframe / screenshot / drawing of each one and a short description of the components
+1. Start screen - This is the first screen that opens up and it has a start button that will lead to the actual game. Additionally, it also has an instructions button that will lead to directions on how to play the game.
+2. Instructions screen - This has the goal of the game and the key binding for the game. It tells the plays to use the arrow keys, hit return to the menu, and escape to restart the game.
+3. Game - This is the actual game which has the timer in the upper left hand corner. Hitting esc will allow the player ot reset its position and hitting the X will close the game. Once the player is spawned and reaches the friend in the right corner the end screen will display
+4. Game over screen - This screen appears once you collide with the friend. It will display the high score and your current time. It will allow you to replay the game by pressing esc and return to the menu by hitting return. The game can be closed by hitting the x on the upper right.
 * << You should also have a screenshot of each screen for your final GUI >>
 
 ***        
@@ -73,7 +75,7 @@ Made sure each group member was on the same page and prevented any miscommunicat
 
 ### Front End Specialist - Ashley Yu
 
-<< Front-end lead conducted significant research on... >>
+The front end specialist collaborated with the back end specialist to create the GUI. They created the start and instructions screen. Additionally, they implemented the screens into the mainloop and gameloop. The specialist decided on the color scheme and placement of buttons and text.
 
 ### Back End Specialist - Young Seo Hur
 
