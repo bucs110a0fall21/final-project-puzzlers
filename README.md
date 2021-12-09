@@ -15,7 +15,10 @@ https://github.com/bucs110a0fall21/final-project-puzzlers
 ***
 
 ## Project Description *(Software Lead)*
-<< Give an overview of your project >>
+A lighthearted game where mini-Totoro travels the world in search of a long lost friend. It is amongst the waters where
+he locates his long lost buddy. In utter excitement Totoro races through the spike-fish herd to reach his friend. Help Totoro reach his friend
+in the fastest time possible so that they can rejoyce once again!
+
 
 ***    
 
@@ -33,7 +36,7 @@ https://github.com/bucs110a0fall21/final-project-puzzlers
         * url for the module documentation
         * a short description of the module
 * Class Interface Design
-    * ![class_diagram](assets/class_diagram.jpg)
+    * ![class_diagram](etc/class_diagram.jpg)
     * This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm.
 * Classes
     * class Player: creates the main character, totoro and sets move functions 
@@ -44,21 +47,31 @@ https://github.com/bucs110a0fall21/final-project-puzzlers
 
 The Project is broken down into the following file structure:
 * main.py
-* bin
-    * <all of your python files should go here>
+* src
+    * controller.py
+    * Friend.py
+    * Player.py
+    * SpikeFish.py
 * assets
-    * <all of your media, i.e. images, font files, etc, should go here)
+    * background.png
+    * block2.png
+    * friend.png
+    * totoro.png
+    * high_scores.json
 * etc
-    * <This is a catch all folder for things that are not part of your project, but you want to keep with your project. Your demo video should go here.>
+    * class_diagram.jpg
+    * interface_design.jpg
 
 ***
 
 ## Tasks and Responsibilities *(Software Lead)*
 * You must outline the team member roles and who was responsible for each class/method, both individual and collaborative.
 
-### Software Lead - << name >>
+### Software Lead - Christopher Yu
 
-<< Worked as integration specialist by... >>
+Worked as integration specialist by ensuring all functions worked correctly 
+in the controller and wrote the Player and Spikefish class. Ensured that all group members understood their tasks and assisted where needed.
+
 
 ### Front End Specialist - << name >>
 
@@ -69,8 +82,9 @@ The Project is broken down into the following file structure:
 << The back end specialist... >>
 
 ## Testing *(Software Lead)*
-* << Describe your testing strategy for your project. >>
-    * << Example >>
+* Implemented each new feature into the controller one at a time
+    * For example, if the timer was to be implemented, I would create the timer,
+  then display it to make sure it worked before moving onto another feature. 
 
 * Your ATP
 
@@ -78,14 +92,16 @@ The Project is broken down into the following file structure:
 | ----------------------|:-------------:| -----------------:| -------------- |
 |  1  | Run main()  | Game starts and loads user into the menu  |   |
 |  2  | User clicks Instructions button |  Instructions tab opens and says how to play game | |
-|  3  | User clicks "Play"  | 1) Game opens and starts 2) Timer starts | |
-|  4  | Press left arrow  | Player moves left |  |
-|  5  | Hold left arrow |  Player continually moves left |  |
-|  6  | Press right arrow  | Player moves right |  |
-|  7  | Hold right arrow  |  Player continually moves right |  |
-|  8  | Press or hold up or down key | Player moves up or down accordingly and keeps going in direction if key held down |   |
-|  9  |  Player rect touches 'Friend' rect | 1) Game ends 2) A scoreboard is displayed showing past completion times & play again directions | |
-|  10  | Tap "r" | The game resets (only works when the game is over)  | |
+|  3  | User clicks "Start"  | 1) Game opens and starts 2) Timer starts | |
+|  4  | User hits 'esc'  | Game resets |  |
+|  5  | Press left arrow  | Player moves left |  |
+|  6  | Hold left arrow |  Player continually moves left |  |
+|  7  | Press right arrow  | Player moves right |  |
+|  8  | Hold right arrow  |  Player continually moves right |  |
+|  9  | Press or hold up or down key | Player moves up or down accordingly and keeps going in direction if key held down |   |
+|  10  | User touches the 'SpikeFish' rect | The player is 'repelled' by displacing the player's rect 2 units in either/both the x and y coordinates  | |
+|  11  |  Player rect touches 'Friend' rect | 1) Game ends 2) A scoreboard is displayed showing current completion time & quickest completion time 3) Displays 'hitting return will return you to main menu' and 'hitting esc will restart the game' | |
+
 
    
 
