@@ -56,17 +56,17 @@ The Project is broken down into the following file structure:
 ## Tasks and Responsibilities *(Software Lead)*
 * You must outline the team member roles and who was responsible for each class/method, both individual and collaborative.
 
-### Software Lead - << name >>
+### Software Lead - Christopher YU
 
 << Worked as integration specialist by... >>
 
-### Front End Specialist - << name >>
+### Front End Specialist - Ashley Yu
 
 << Front-end lead conducted significant research on... >>
 
 ### Back End Specialist - Young Seo Hur
 
-<< The back end specialist... >>
+The back end specialist wrote much of the data classes representing state, location, and behaviour. I drew the sketch of the classes and their purpose as well as the GUI design plan illustration. Lastly, I was the main debugger as well as functionality improver as I added or improved code to run smoother and accurately. 
 
 ## Testing *(Software Lead)*
 * << Describe your testing strategy for your project. >>
@@ -89,7 +89,5 @@ The Project is broken down into the following file structure:
 
    
 
-![Controller Image](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/Controller.pdf)
-![Interface](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/interface%20full-1.jpg)
-![Interface2](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/interface%20full-2.jpg)
-![Interface3](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/interface%20full-3.jpg)
+![Class_Diagram](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/class_diagram.jpg)
+![Interface_Design](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/interface_design.jpg)
