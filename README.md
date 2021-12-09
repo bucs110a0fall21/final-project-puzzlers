@@ -29,9 +29,10 @@ https://github.com/bucs110a0fall21/final-project-puzzlers
 ## Program Design *(Backend Specialist)*
 * Non-Standard libraries
     * Additional libraries or modules used: pygame, random, json, sys
-    * For each additional module you should include
-        * url for the module documentation
-        * a short description of the module
+    * Pygame: (https://www.pygame.org/) a module set that consists of game development functions that is used in python. includes necessary graphical elements
+    * Random: module that implements psuedo-random number generators for various distributions. Used in spawning spikefish in random locations.
+    * Json: is a text/syntax for storing and exchanging data. Used in our game to store and read in data (time record and highscore time it took to finish game) that is displayed.
+    * Sys: module provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter. 
 * Class Interface Design
     * ![interface_design](etc/interface_design.jpg)
     * This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm.
@@ -66,7 +67,7 @@ The Project is broken down into the following file structure:
 
 ### Back End Specialist - Young Seo Hur
 
-The back end specialist wrote much of the data classes representing state, location, and behaviour. I drew the sketch of the classes and their purposes and relationships as well as the GUI design plan illustration. Lastly, I was the main debugger as well as functionality improver as I added and improved code to run the characters' movements, start menu, gameover screen, and buttons more smoother and accurately. 
+The back end specialist wrote much of the data classes representing state, location, and behaviour. I drew the sketch of the classes and their purposes and relationships as well as the GUI design plan illustration. Lastly, I was the main debugger as well as functionality improver as I added and improved code to run the characters' movements, start menu, gameover screen, and buttons more smoother and accurately. Collaborated with front end and software lead often.
 
 ## Testing *(Software Lead)*
 * << Describe your testing strategy for your project. >>
