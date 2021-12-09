@@ -1,8 +1,6 @@
 from src import Player
 from src import Friend
-# from src import Timer
 from src import SpikeFish
-# from src import Button
 import json
 import random
 import pygame
@@ -27,17 +25,8 @@ class Controller:
 
         self.player = Player.Player()
         self.Friend = Friend.Friend()
-        # self.button = Button.Button()
         self.block = pygame.sprite.Group()
         self.reset()
-
-        # num_SpikeFish = 12 #edit number of enemies
-        # for i in range(num_SpikeFish):
-        #     x = random.randrange(150, 910)
-        #     y = random.randrange(45, 510)
-        #     self.block.add(SpikeFish.SpikeFish(x, y))
-
-        # self.waitstate = True
 
         self.timer, self.text_timer = 10, '10'.rjust(3)
         self.font_timer = pygame.font.SysFont(None, 30)
@@ -146,7 +135,6 @@ class Controller:
         # """
         while self.state == "GAME":
             for event in pygame.event.get():
-                keys = pygame.key.get_pressed()
                 if event.type == pygame.QUIT:
                     sys.exit()
                 elif event.type == pygame.KEYDOWN:
@@ -227,6 +215,7 @@ class Controller:
              json.dump(scores, new_score)
              new_score.close()
 
+
              keys = pygame.key.get_pressed()
              self.screen.fill((240, 250, 240))
              for i in range(1000):
@@ -234,8 +223,10 @@ class Controller:
              if text_time > current_time:
                  text = myfont.render('congrats! game over', True, (0, 0, 0))
                  text2 = myfont.render('press escape to restart game; return to return to menu', True, (0, 0, 0))
+                 display_score = myfont.render(str(scores), True, (0, 0, 0))
                  self.screen.blit(text, (460, 200))
                  self.screen.blit(text2, (270, 260))
+                 self.screen.blit(display_score, (500, 700))
              pygame.display.update()
              if keys[pygame.K_ESCAPE]:
                  self.state = "GAME"
