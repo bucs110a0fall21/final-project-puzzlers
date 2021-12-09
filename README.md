@@ -15,7 +15,8 @@ https://github.com/bucs110a0fall21/final-project-puzzlers
 ***
 
 ## Project Description *(Software Lead)*
-<< Give an overview of your project >>
+A lighthearted game where mini-Totoro locates his long-lost friend admist a weekend swim. Navigate mini-Totoro through the spike fish as quick as possible so that
+they can once again rejoyce!
 
 ***    
 
@@ -44,21 +45,31 @@ https://github.com/bucs110a0fall21/final-project-puzzlers
 
 The Project is broken down into the following file structure:
 * main.py
-* bin
-    * <all of your python files should go here>
+* src 
+    * controller.py
+    * Friend.py
+    * Player.py
+    * SpikeFish.py
 * assets
-    * <all of your media, i.e. images, font files, etc, should go here)
+    * background.png
+    * block2.png
+    * friend.png
+    * totoro.png
 * etc
-    * <This is a catch all folder for things that are not part of your project, but you want to keep with your project. Your demo video should go here.>
+    * class_diagram.jpg
+    * interface_design.jpg
+    * video1818954711.mp4
 
 ***
 
 ## Tasks and Responsibilities *(Software Lead)*
 * You must outline the team member roles and who was responsible for each class/method, both individual and collaborative.
 
-### Software Lead - Christopher YU
+### Software Lead - Christopher Yu
 
-<< Worked as integration specialist by... >>
+Worked as integration specialist by implementing the controller functions ensuring that all the classes meshed correctly and functioned properly.
+Also wrote the SpikeFish and Player class as well as assisted in other controller related integration issues with the Back-end specialist. 
+Made sure each group member was on the same page and prevented any miscommunications on the work assigned for each member. 
 
 ### Front End Specialist - Ashley Yu
 
@@ -66,11 +77,11 @@ The Project is broken down into the following file structure:
 
 ### Back End Specialist - Young Seo Hur
 
-The back end specialist wrote much of the data classes representing state, location, and behaviour. I drew the sketch of the classes and their purposes and relationships as well as the GUI design plan illustration. Lastly, I was the main debugger as well as functionality improver as I added and improved code to run the characters' movements, start menu, gameover screen, and buttons more smoother and accurately. 
+The back end specialist wrote much of the data classes representing state, location, and behaviour. I drew the sketch of the classes and their purposes and relationships as well as the GUI design plan illustration. Lastly, I was the main debugger as well as functionality improver as I added and improved code to run the characters' movements, start menu, gameover screen, and buttons more smoother and accurately. Worked with software lead in the data permanence feature: storing and reading data, displaying on game over screen and debugging. 
 
 ## Testing *(Software Lead)*
-* << Describe your testing strategy for your project. >>
-    * << Example >>
+* Integrated each feature individually into the controller to pinpoint what was wrong in the event of an error. Also utilized the ATP to ensure that the feature implemented was the correct feature intended.
+    * For example, if the timer function was to be implemented, first the timer would be tested to see if it worked (as a timer of course) and then when that was confirmed, it would be tested to see if it displayed on the screen correctly. 
 
 * Your ATP
 
@@ -78,18 +89,20 @@ The back end specialist wrote much of the data classes representing state, locat
 | ----------------------|:-------------:| -----------------:| -------------- |
 |  1  | Run main()  | Game starts and loads user into the menu  |   |
 |  2  | User clicks Instructions button |  Instructions tab opens and says how to play game | |
-|  3  | User clicks "Play"  | 1) Game opens and starts 2) Timer starts | |
-|  4  | Press 'esc'  | 1) Player's position is reset 2) Timer is rest |  |
-|  4  | Press left arrow  | Player moves left |  |
-|  5  | Hold left arrow |  Player continually moves left |  |
-|  6  | Press right arrow  | Player moves right |  |
-|  7  | Hold right arrow  |  Player continually moves right |  |
-|  8  | Press or hold up or down key | Player moves up or down accordingly and keeps going in direction if key held down |   |
-|  4  | Player rect touches SpikeFish rect  | Player is repelled away by 2 units |  |
-|  9  |  Player rect touches 'Friend' rect | 1) Game ends 2) The highscore and current score are recorded in the json file 3) End Screen pops up with instructions as well as the highscore and current completion time | |
-|  10  | User preses "esc" | 1) The game resets 2) The timer resets  | |
-|  4  | User presses "return"  | The game returns to the main menu |  |
-|  4  | User presses the "close" button on the screen  | The game closes |  |
+|  3  | User hits 'return'  | Returns the user into the main menu  |   |
+|  4  | User clicks "Play"  | 1) Game opens and starts 2) Timer starts | |
+|  5  | Press 'esc'  | 1) Player's position is reset 2) Timer is rest |  |
+|  6  | Press left arrow  | Player moves left |  |
+|  7  | Hold left arrow |  Player continually moves left |  |
+|  8 | Press right arrow  | Player moves right |  |
+|  9  | Hold right arrow  |  Player continually moves right |  |
+|  10  | Press or hold up or down key | Player moves up or down accordingly and keeps going in direction if key held down |   |
+|  11 | Player rect touches SpikeFish rect  | Player is repelled away by 2 units |  |
+|  12 |  Player rect touches 'Friend' rect | 1) Game ends 2) The highscore and current score are recorded in the json file 3) End Screen pops up with instructions as well as the highscore and current completion time | |
+|  13  | User preses "esc" | 1) The game resets 2) The timer resets  | |
+|  14  | User completes the game once again  | Game reloads back into the end menu  |   |
+|  15 | User presses "return"  | The game returns to the main menu |  |
+|  16 | User presses the "close" button on the screen  | The game closes |  |
 
    
 
