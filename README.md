@@ -33,7 +33,7 @@ https://github.com/bucs110a0fall21/final-project-puzzlers
         * url for the module documentation
         * a short description of the module
 * Class Interface Design
-    * ![class_diagram](assets/class_diagram.jpg)
+    * ![interface_design](etc/interface_design.jpg)
     * This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm.
 * Classes
     * class Player: creates the main character, totoro and sets move functions
@@ -89,5 +89,5 @@ The back end specialist wrote much of the data classes representing state, locat
 
    
 
-![Class_Diagram](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/class_diagram.jpg)
-![Interface_Design](https://github.com/bucs110a0fall21/final-project-puzzlers/blob/master/assets/interface_design.jpg)
+![Class_Diagram](etc/class_diagram.jpg)
+![Interface_Design](etc/interface_design.jpg)
