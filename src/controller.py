@@ -15,7 +15,6 @@ class Controller:
         self.screen_height = 600
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         self.clock = pygame.time.Clock()
-        self.menubackground = pygame.Surface((self.screen_width, self.screen_height))
         self.fps = 60
         pygame.key.set_repeat(1, 50)
 
