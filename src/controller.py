@@ -9,6 +9,11 @@ import sys
 
 class Controller:
     def __init__(self):
+        '''
+        Intilizes the screen, timer and sprites required to run the program
+        args: self
+        returns: n/a
+        '''
         pygame.init()
         pygame.font.init()
         self.screen_width = 1170
@@ -32,6 +37,11 @@ class Controller:
         self.font = pygame.font.SysFont(None, 30)
 
     def reset(self):
+        """
+        reset function that allows the game to be reset with a buttonpress
+        args: self
+        returns: n/a
+        """
         self.block = pygame.sprite.Group()
         self.player.rect.x = 50
         self.player.rect.y = 50
@@ -43,11 +53,11 @@ class Controller:
             self.block.add(SpikeFish.SpikeFish(x, y))
 
     def mainloop(self):
-        # ""
-        #     Checks state of the game & keeps game going until game is over
-        #     args: self
-        #     returns: none
-        # ""
+        """
+        initilizes the game loop which includes 3 possible game states: In the game, In the Main Menu and the End Screen Menu
+        args: self
+        returns: none
+        """
         while True:
             if (self.state == "GAME"):
                 self.gameLoop()
