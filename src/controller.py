@@ -45,7 +45,7 @@ class Controller:
         self.player.rect.x = 50
         self.player.rect.y = 50
         self.timer = 0
-        num_SpikeFish = 0  # edit number of enemies
+        num_SpikeFish = 12  # edit number of enemies
         for i in range(num_SpikeFish):
             x = random.randrange(150, 910)
             y = random.randrange(45, 510)
@@ -190,7 +190,6 @@ class Controller:
 
             # displays and updates the time as soon as game starts
             self.timer = pygame.time.get_ticks() - start_tick
-            # self.clock(60)
             timer = self.font_timer.render(str(self.timer / 1000).rjust(3), False, (0, 0, 0))
             update_text_timer = self.screen.blit(timer, (10, 10))
             pygame.display.update(update_text_timer)
@@ -248,13 +247,11 @@ class Controller:
             if keys[pygame.K_ESCAPE]:
                 self.state = "GAME"
                 self.reset()
-                # Controller.gameLoop(self)
                 run = False
-            elif keys[pygame.K_RETURN]:  # need help getting back to menu screen when return is pressed
+            elif keys[pygame.K_RETURN]:
                 self.state = "START"
                 self.reset()
                 run = False
-                # self.startScreen(self)
 
 
 pygame.quit()
