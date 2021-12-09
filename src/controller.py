@@ -32,6 +32,11 @@ class Controller:
         self.font = pygame.font.SysFont(None, 30)
 
     def reset(self):
+    	  '''
+    	  Resets the game to the beginning
+    	  args:self
+    	  return: none
+    	  '''
         self.block = pygame.sprite.Group()
         self.player.rect.x = 50
         self.player.rect.y = 50
@@ -43,11 +48,11 @@ class Controller:
             self.block.add(SpikeFish.SpikeFish(x, y))
 
     def mainloop(self):
-        # ""
-        #     Checks state of the game & keeps game going until game is over
-        #     args: self
-        #     returns: none
-        # ""
+        '''
+        Checks state of the game & keeps game going until game is over
+        args: self
+        returns: none
+        '''
         while True:
             if(self.state == "GAME"):
                 self.gameLoop()
@@ -58,9 +63,9 @@ class Controller:
     
     def startScreen(self):
         """
-            displays the starting menu screen which includes start and instructions buttons
-            args: self
-            return: none
+        displays the starting menu screen which includes start and instructions buttons
+        args: self
+        return: none
         """
         run = True
         startbutton = pygame.Rect(485, 200, 200, 100)
@@ -101,6 +106,11 @@ class Controller:
             pygame.display.flip()
 
     def instructions(self):
+    	  '''
+    	  Shows the instructions and goal
+    	  args: self
+    	  return: none
+    	  '''
         self.run = True
         while self.run == True:
             self.screen.fill((90, 150, 250))
@@ -124,15 +134,15 @@ class Controller:
             pygame.display.flip()
 
     def gameLoop(self):
-        # """
-        #     allows user to move Totoro around screen,
-        #     checks for collision with spikeFish and repels user back if collides, 
-        #     sets win conditions, 
-        #     keep track of time took to reach friend, 
-        #     redraws and updates screen
-        #     args: self
-        #     returns: none
-        # """
+        '''
+        allows user to move Totoro around screen,
+        checks for collision with spikeFish and repels user back if collides, 
+        sets win conditions, 
+        keep track of time took to reach friend, 
+        redraws and updates screen
+        args: self
+        returns: none
+        '''
         start_tick = pygame.time.get_ticks()
         while self.state == "GAME":
             for event in pygame.event.get():
@@ -189,11 +199,11 @@ class Controller:
             pygame.display.flip()
 
     def gameOver(self):
-        # ""
-        #     displays game over screen, allows user to replay game or return to menu
-        #     args: self
-        #     return: none
-        # ""
+        '''
+        displays game over screen, allows user to replay game or return to menu
+        args: self
+        return: none
+        '''
         myfont = pygame.font.SysFont('comicsans', 40)
         text_time = 0
         run = True
