@@ -79,13 +79,17 @@ The back end specialist wrote much of the data classes representing state, locat
 |  1  | Run main()  | Game starts and loads user into the menu  |   |
 |  2  | User clicks Instructions button |  Instructions tab opens and says how to play game | |
 |  3  | User clicks "Play"  | 1) Game opens and starts 2) Timer starts | |
+|  4  | Press 'esc'  | 1) Player's position is reset 2) Timer is rest |  |
 |  4  | Press left arrow  | Player moves left |  |
 |  5  | Hold left arrow |  Player continually moves left |  |
 |  6  | Press right arrow  | Player moves right |  |
 |  7  | Hold right arrow  |  Player continually moves right |  |
 |  8  | Press or hold up or down key | Player moves up or down accordingly and keeps going in direction if key held down |   |
-|  9  |  Player rect touches 'Friend' rect | 1) Game ends 2) A scoreboard is displayed showing past completion times & play again directions | |
-|  10  | Tap "r" | The game resets (only works when the game is over)  | |
+|  4  | Player rect touches SpikeFish rect  | Player is repelled away by 2 units |  |
+|  9  |  Player rect touches 'Friend' rect | 1) Game ends 2) The highscore and current score are recorded in the json file 3) End Screen pops up with instructions as well as the highscore and current completion time | |
+|  10  | User preses "esc" | 1) The game resets 2) The timer resets  | |
+|  4  | User presses "return"  | The game returns to the main menu |  |
+|  4  | User presses the "close" button on the screen  | The game closes |  |
 
    
 
