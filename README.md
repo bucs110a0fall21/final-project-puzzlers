@@ -28,12 +28,12 @@ https://github.com/bucs110a0fall21/final-project-puzzlers
 
 ## Program Design *(Backend Specialist)*
 * Non-Standard libraries
-    * << You should have a list of any additional libraries or modules used (pygame, request) beyond non-standard python. >>
+    * Additional libraries or modules used: pygame, random, json, sys
     * For each additional module you should include
         * url for the module documentation
         * a short description of the module
 * Class Interface Design
-    * << A simple drawing that shows the class relationships in your code (see below for an example). >>
+    * assets/class_diagram.jpg
         * ![class diagram](assets/class_diagram.jpg)
     * This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm.
 * Classes
