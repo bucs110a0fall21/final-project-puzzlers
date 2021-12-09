@@ -33,11 +33,12 @@ https://github.com/bucs110a0fall21/final-project-puzzlers
         * url for the module documentation
         * a short description of the module
 * Class Interface Design
-    * assets/class_diagram.jpg
-        * ![class diagram](assets/class_diagram.jpg)
+    * ![class_diagram](assets/class_diagram.jpg)
     * This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm.
 * Classes
-    * << You should have a list of each of your classes with a description. >>
+    * class Player: creates the main character, totoro and sets move functions 
+    * class Friend: creates the friend character and sets its position
+    * class SpikeFish: creates the spikefish obstacles that will be called using randomized x and y values
 
 ## Project Structure *(Software Lead)*
 
@@ -63,7 +64,7 @@ The Project is broken down into the following file structure:
 
 << Front-end lead conducted significant research on... >>
 
-### Back End Specialist - << name >>
+### Back End Specialist - Young Seo Hur
 
 << The back end specialist... >>
 

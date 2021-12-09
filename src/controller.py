@@ -36,7 +36,7 @@ class Controller:
         self.player.rect.x = 50
         self.player.rect.y = 50
         self.timer = 0
-        num_SpikeFish = 12  # edit number of enemies
+        num_SpikeFish = 0  # edit number of enemies
         for i in range(num_SpikeFish):
             x = random.randrange(150, 910)
             y = random.randrange(45, 510)
@@ -133,6 +133,7 @@ class Controller:
         #     args: self
         #     returns: none
         # """
+        start_tick = pygame.time.get_ticks()
         while self.state == "GAME":
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -173,9 +174,9 @@ class Controller:
                 self.state = "GAMEOVER"
 
             #displays and updates the time as soon as game starts
-            self.timer += 1
+            self.timer = pygame.time.get_ticks() - start_tick
             # self.clock(60)
-            timer = self.font_timer.render(str(self.timer/100).rjust(3), False, (0, 0, 0))
+            timer = self.font_timer.render(str(self.timer/1000).rjust(3), False, (0, 0, 0))
             update_text_timer = self.screen.blit(timer, (10, 10))
             pygame.display.update(update_text_timer)
 
@@ -193,50 +194,51 @@ class Controller:
         #     args: self
         #     return: none
         # ""
-         myfont = pygame.font.SysFont('comicsans', 40)
-         text_time = 0
-         run = True
-         current_time = self.timer / 100
+        myfont = pygame.font.SysFont('comicsans', 40)
+        text_time = 0
+        run = True
+        current_time = self.timer / 1000
 
-         while run:
-             pygame.time.delay(10)
-             for event in pygame.event.get():
-                 if event.type == pygame.QUIT:
-                     run = False
+        while run:
+            pygame.time.delay(10)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    run = False
 
-             new_score = open("assets/high_scores.json", 'r')
-             scores = json.load(new_score)
-             new_score.close()
-             scores[1] = current_time
-             if scores[0] > current_time or scores[0] == 0:
-                 scores[0] = current_time
+            new_score = open("assets/high_scores.json", 'r')
+            scores = json.load(new_score)
+            new_score.close()
+            scores[1] = current_time
+            if scores[0] > current_time or scores[0] == 0:
+                scores[0] = current_time
 
-             new_score = open("assets/high_scores.json", 'w')
-             json.dump(scores, new_score)
-             new_score.close()
+            new_score = open("assets/high_scores.json", 'w')
+            json.dump(scores, new_score)
+            new_score.close()
 
-
-             keys = pygame.key.get_pressed()
-             self.screen.fill((240, 250, 240))
-             for i in range(1000):
-                 text_time += i
-             if text_time > current_time:
-                 text = myfont.render('congrats! game over', True, (0, 0, 0))
-                 text2 = myfont.render('press escape to restart game; return to return to menu', True, (0, 0, 0))
-                 display_score = myfont.render(str(scores), True, (0, 0, 0))
-                 self.screen.blit(text, (460, 200))
-                 self.screen.blit(text2, (270, 260))
-                 self.screen.blit(display_score, (500, 700))
-             pygame.display.update()
-             if keys[pygame.K_ESCAPE]:
-                 self.state = "GAME"
-                 self.reset()
+            keys = pygame.key.get_pressed()
+            self.screen.fill((90, 150, 250))
+            for i in range(1000):
+                text_time += i
+            if text_time > current_time:
+                text = myfont.render('totoro found his friend! now try to beat your past time :)', True, (0, 0, 0))
+                text2 = myfont.render('press escape to restart game; return to return to menu', True, (0, 0, 0))
+                display_score = myfont.render("current time: " + str(scores[1]), True, (0, 0, 0))
+                display_highscore = myfont.render("highscore time: " + str(scores[0]), True, (0, 0, 0))
+                self.screen.blit(text, (220, 300))
+                self.screen.blit(text2, (220, 350))
+                self.screen.blit(display_score, (460, 200))
+                self.screen.blit(display_highscore, (460, 250))
+            pygame.display.update()
+            if keys[pygame.K_ESCAPE]:
+                self.state = "GAME"
+                self.reset()
                  # Controller.gameLoop(self)
-                 run = False
-             elif keys[pygame.K_RETURN]: #need help getting back to menu screen when return is pressed
-                 self.state = "START"
-                 self.reset()
-                 run = False
+                run = False
+            elif keys[pygame.K_RETURN]: #need help getting back to menu screen when return is pressed
+                self.state = "START"
+                self.reset()
+                run = False
                  # self.startScreen(self)
 
 pygame.quit()
