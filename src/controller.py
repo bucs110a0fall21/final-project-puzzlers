@@ -45,7 +45,7 @@ class Controller:
         self.player.rect.x = 50
         self.player.rect.y = 50
         self.timer = 0
-        num_SpikeFish = 0  # edit number of enemies
+        num_SpikeFish = 12  # edit number of enemies
         for i in range(num_SpikeFish):
             x = random.randrange(150, 910)
             y = random.randrange(45, 510)
